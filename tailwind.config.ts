@@ -24,8 +24,9 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        black: "#212121",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "#ffbf00",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -54,7 +55,7 @@ const config = {
         },
       },
       boxShadow: {
-        'padrao': "0px 10px 25px -3px rgba(0,0,0,0.1);"
+        'default': "0px 10px 25px -3px rgba(0,0,0,0.1);"
       },
       borderRadius: {
         lg: "var(--radius)",

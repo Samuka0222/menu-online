@@ -18,7 +18,7 @@ const NavBar = () => {
       <div>
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant='outline' size='icon' className="border-none shadow-padrao" >
+            <Button variant='outline' size='icon' className="border-none shadow-default" >
               <MenuIcon size={30} />
             </Button>
           </SheetTrigger>
