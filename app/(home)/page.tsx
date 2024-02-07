@@ -1,7 +1,9 @@
+import NavBar from "./_components/nav-bar";
+
 const HomePage = () => {
   return <>
     <main>
-      <h1>Oi mãe!</h1>
+      <NavBar />
     </main>
   </>;
 }
