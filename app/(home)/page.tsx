@@ -2,6 +2,7 @@ import { Button } from "@/app/_components/ui/button";
 import NavBar from "./_components/nav-bar";
 import { Phone } from "lucide-react";
 import SocialLinks from "@/app/_components/socials-links";
+import Services from "./_components/services";
 
 const HomePage = () => {
   return <>
@@ -34,6 +35,8 @@ const HomePage = () => {
         <div className="w-full">
           <SocialLinks />
         </div>
+
+        <Services />
       </section>
     </main>
   </>;
