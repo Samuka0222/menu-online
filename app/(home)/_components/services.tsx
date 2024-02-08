@@ -9,7 +9,7 @@ const Services = () => {
         description="Como são nossos serviços?"
       />
 
-      <div className="flex flex-col justify-center items-center gap-12">
+      <div className="flex flex-col justify-center items-center gap-12 mt-10">
         <div className="flex flex-col justify-center items-center text-center gap-4">
           <Image
             src='/img/icone-pedido.svg'
