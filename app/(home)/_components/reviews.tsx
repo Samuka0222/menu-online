@@ -1,35 +1,39 @@
+'use client'
+
 import SectionTitle from "@/app/_components/section-title";
 import { Button } from "@/app/_components/ui/button";
 import { QuoteIcon, StarHalfIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
 import IReview from "@/app/_lib/interfaces/IReview";
 import reviews from "@/app/_lib/mocks/reviews.json"
+import { Card, CardContent, } from "@/app/_components/ui/card";
+import { useState } from "react";
 
 interface ReviewProps {
   review: IReview
 }
 
+
 const Reviews = () => {
+  const [actualReview, setActualReview] = useState(reviews[0]);
+
+  const handleClick = (id: number) => {
+    setActualReview(reviews[id]);
+  }
+
   return (
     <section className="mt-16">
       <SectionTitle
         title="Depoimentos"
         description="O que dizem sobrem nós?"
       />
-
-      <div>
-        {reviews.map(review => (
-          <Review key={review.id} review={review} />
-        ))}
-      </div>
+      <Review key={actualReview.id} review={actualReview} />
 
       <div className="w-full flex gap-5 justify-center items-center mt-5">
-        <Button variant='outline' className="text-xl font-bold">1</Button>
-        <Button variant='outline' className="text-xl font-bold">2</Button>
-        <Button variant='outline' className="text-xl font-bold">3</Button>
+        <Button variant='outline' className="text-xl font-bold" onClick={() => handleClick(0)}>1</Button>
+        <Button variant='outline' className="text-xl font-bold" onClick={() => handleClick(1)}>2</Button>
+        <Button variant='outline' className="text-xl font-bold" onClick={() => handleClick(2)}>3</Button>
       </div>
-
-      {/* TODO: Fazer a lógica para mostrar apenas um depoimento no clique do botão */}
     </section>
   );
 }
@@ -38,10 +42,10 @@ export default Reviews;
 
 const Review = ({ review }: ReviewProps) => {
   return (
-    <>
-      <div className="flex flex-col">
-        <div className="flex gap-4 items-center">
-          <div className="flex justify-center items-center px-10">
+    <Card className="border-none">
+      <CardContent className="flex flex-col py-6 px-0">
+        <div className="flex gap-4 items-center justify-start ml-10">
+          <div className="flex justify-center items-center">
             <Image
               src={review.imagem}
               alt="depoimento"
@@ -53,6 +57,7 @@ const Review = ({ review }: ReviewProps) => {
           <div className="flex flex-col gap-2">
             <h3 className="text-3xl font-bold text-black">{review.nome}</h3>
             <h4 className="flex">
+              {/* TODO: Fazer a lógica para mostrar as notas corretamente*/}
               <StarIcon fill="#ffbf00" color="#ffbf00" />
               <StarIcon fill="#ffbf00" color="#ffbf00" />
               <StarIcon fill="#ffbf00" color="#ffbf00" />
@@ -71,7 +76,7 @@ const Review = ({ review }: ReviewProps) => {
             <QuoteIcon fill="#ffbf00" strokeWidth={0} size={70} />
           </div>
         </div>
-      </div>
-    </>
+      </CardContent>
+    </Card>
   )
 }
