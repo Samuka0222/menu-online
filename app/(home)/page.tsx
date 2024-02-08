@@ -16,7 +16,7 @@ const HomePage = () => {
       <section className="mt-12 flex flex-col justify-center items-center px-5">
         <h1 className="font-bold text-4xl text-center text-black">
           Escolha a sua comida <strong className="text-primary">Favorita</strong>.
-        </h1>depoimento
+        </h1>
 
         <p className="text-2xl text-center font-medium mt-5">
           Aproveite nosso cardápio! Escolha o que desejar e receber em sua casa de forma rápida e segura.

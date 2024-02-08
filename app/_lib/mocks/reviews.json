@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "imagem": "/img/diego.jpg",
+    "nome": "Diego Pereira",
+    "nota": 4.5,
+    "review": "Muito bom, recomendo demais! Comida muita bem feita pelo chefe, atendimento dentro dos parâmentros e boa comunicação com o cliente."
+  },
+  {
+    "id": 2,
+    "imagem": "/img/ana.jpg",
+    "nome": "Ana Beatriz",
+    "nota": 5,
+    "review": "Um jantar perfeito do começo ao fim. Comida, experiência, serviços ... foi tão maravilhoso que fomos dois dias seguidos - fato inédito para mim em viagem."
+  },
+  {
+    "id": 3,
+    "imagem": "/img/joao.jpg",
+    "nome": "João Guilherme",
+    "nota": 4,
+    "review": "A comida estava excelente e o serviço gentil nos surpreendeu! Dica: reserve umas 3 horas para ter uma experiência íncrivel."
+  }
+]
