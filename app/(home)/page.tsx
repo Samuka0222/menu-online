@@ -44,8 +44,8 @@ const HomePage = () => {
         <Menu />
         <Reviews />
         <Booking />
-        <Footer  />
       </section>
+      <Footer />
     </main>
   </>;
 }
