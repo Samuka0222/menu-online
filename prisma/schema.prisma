@@ -30,7 +30,7 @@ model Product {
   description String
   price       Decimal @db.Decimal(10, 2)
   order       Order?
-  orderId     String
+  orderId     String?
 }
 
 model Order {
