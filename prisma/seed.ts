@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 const products = [
   {
     "id": "ribs-brisket-and-burnt-ends",
-    "img": "img/cardapio/churrasco/joes-kc-ribs-brisket-and-burnt-ends.6710e994980e485e6441b794717ad6fb.jpg",
+    "img": "https://ibb.co/fNgc9n0",
     "name": "Joe's KC BBQ",
     "category": "churrasco",
     "dsc": "Joe's KC Ribs, Brisket & Burnt Ends",
@@ -13,7 +13,7 @@ const products = [
   },
   {
     "id": "005-kings-carolina-oink-sampler",
-    "img": "img/cardapio/churrasco/carolina-bbq-oink-sampler.1340b5a10cedc238cb2280306dd1d5a5.jpg",
+    "img": "https://ibb.co/7xcstNj",
     "name": "Kings BBQ",
     "category": "churrasco",
     "dsc": "Carolina BBQ Oink Sampler",
@@ -21,7 +21,7 @@ const products = [
   },
   {
     "id": "texas-monthlys-1-bbq-brisket",
-    "img": "img/cardapio/churrasco/texas-monthlys-1-bbq-brisket.1006a061be7acae03992e420fbca995a.jpg",
+    "img": "https://ibb.co/2ypS668",
     "name": "Snow's BBQ",
     "category": "churrasco",
     "dsc": "Texas Monthly's #1 BBQ Brisket",
@@ -29,7 +29,7 @@ const products = [
   },
   {
     "id": "whole-brisket-texas-bbq-sauce",
-    "img": "img/cardapio/churrasco/whole-brisket-texas-barbecue-bbq-sauce.e07ee4818b20ed43d217bf67fedd41ce.jpg",
+    "img": "https://ibb.co/yn90YtF",
     "name": "Franklin Barbecue",
     "category": "churrasco",
     "dsc": "Whole Brisket + Texas Barbecue BBQ Sauce",
@@ -37,7 +37,7 @@ const products = [
   },
   {
     "id": "whole-texas-smoked-brisket",
-    "img": "img/cardapio/churrasco/whole-texas-smoked-brisket.a5558a25381e271408e197936e7985d8.jpg",
+    "img": "https://ibb.co/BzJ6QD1",
     "name": "Terry Black's Barbecue",
     "category": "churrasco",
     "dsc": "Whole Texas Smoked Brisket",
@@ -45,7 +45,7 @@ const products = [
   },
   {
     "id": "mini-trinity-bbq-combo-brisket-ribs-and-links",
-    "img": "img/cardapio/churrasco/mini-trinity-bbq-combo-brisket-ribs-and-links.245582f593bf64b23b57dfca2be18cfd.jpg",
+    "img": "https://ibb.co/7K9bntP",
     "name": "Bludso's BBQ",
     "category": "churrasco",
     "dsc": "Mini Trinity BBQ Combo - Brisket, Ribs & Links",
@@ -53,7 +53,7 @@ const products = [
   },
   {
     "id": "235203-blue-smoke-baby-back-ribs-backyard-barbecue-chicken-combo",
-    "img": "img/cardapio/churrasco/blue-smoke-baby-back-ribs-backyard-barbecue-chicken-combo.a95a3e632ae324f719738a2a5c1dff6e.jpg",
+    "img": "https://ibb.co/kypzhwV",
     "name": "Blue Smoke",
     "category": "churrasco",
     "dsc": "Blue Smoke Baby Back Ribs + Backyard Barbecue Chicken Combo",
@@ -61,7 +61,7 @@ const products = [
   },
   {
     "id": "006-kings-meat-lovers-special",
-    "img": "img/cardapio/churrasco/bbq-meat-lovers-special-for-10.36ca670fda4bfa783c2ea9165e068d26.jpg",
+    "img": "https://ibb.co/gj2kTQj",
     "name": "Kings BBQ",
     "category": "churrasco",
     "dsc": "BBQ Meat Lovers Special for 10",
@@ -69,7 +69,7 @@ const products = [
   },
   {
     "id": "the-big-ugly-bbq-dinner-for-6",
-    "img": "img/cardapio/churrasco/the-big-ugly-bbq-dinner-for-6.2dfae7818811adddce85cc1a910881a0.jpg",
+    "img": "https://ibb.co/KXPc06X",
     "name": "Ugly Drum",
     "category": "churrasco",
     "dsc": "The Big Ugly BBQ Dinner for 6",
@@ -77,7 +77,7 @@ const products = [
   },
   {
     "id": "17796-mighty-quinns-bbq-sampler-pack",
-    "img": "img/cardapio/churrasco/mighty-quinns-bbq-sampler-pack.1bfe4a0665edc565756f5241bf25840e.jpg",
+    "img": "https://ibb.co/hmnHWZJ",
     "name": "Mighty Quinn's BBQ",
     "category": "churrasco",
     "dsc": "Mighty Quinn's BBQ Sampler Pack",
@@ -85,7 +85,7 @@ const products = [
   },
   {
     "id": "post-oak-smoked-half-brisket",
-    "img": "img/cardapio/churrasco/post-oak-smoked-usda-prime-half-brisket.6f17178dde7d806670bcc73ff11762b3.jpg",
+    "img": "https://ibb.co/7YSSD9F",
     "name": "Southside Market & Barbeque",
     "dsc": "Post Oak Smoked USDA Prime Half Brisket",
     "price": 109,
@@ -93,7 +93,7 @@ const products = [
   },
   {
     "id": "best-of-texas-bbq-combo-serves-14",
-    "img": "img/cardapio/churrasco/best-of-texas-bbq-combo-serves-14.7ae90266335e539c67e77fed14b43029.jpg",
+    "img": "https://ibb.co/9sVX3Tc",
     "name": "Snow's BBQ",
     "category": "churrasco",
     "dsc": "Best of Texas BBQ Combo - Serves 14",
@@ -101,7 +101,7 @@ const products = [
   },
   {
     "id": "the-gramercy-tavern-burger-4-pack",
-    "img": "img/cardapio/burguers/Gramercy-Tavern-Burger-and-Kielbasa-Kit-6.4.21-72ppi-1x1-15.jpg",
+    "img": "https://ibb.co/CJmDfTG",
     "name": "Gramercy Tavern",
     "category": "burguers",
     "dsc": "The Gramercy Tavern Burger - 4 Pack",
@@ -109,7 +109,7 @@ const products = [
   },
   {
     "id": "shake-shack-shackburger-8-pack",
-    "img": "img/cardapio/burguers/shake-shack-shackburger-8-pack.973a5e26836ea86d7e86a327becea2b0.jpg",
+    "img": "https://ibb.co/gt2xy6k",
     "name": "Shake Shack",
     "category": "burguers",
     "dsc": "Shake Shack ShackBurger® - 8 Pack",
@@ -117,7 +117,7 @@ const products = [
   },
   {
     "id": "gotts-cheeseburger-kit-for-4",
-    "img": "img/cardapio/burguers/gotts-complete-cheeseburger-kit-for-4.7bdc74104b193427b3fe6eae39e05b5e.jpg",
+    "img": "https://ibb.co/nz5hnCv",
     "name": "Gott's Roadside",
     "category": "burguers",
     "dsc": "Gott's Complete Cheeseburger Kit for 4",
@@ -125,7 +125,7 @@ const products = [
   },
   {
     "id": "le-big-matt-kit-for-6",
-    "img": "img/cardapio/burguers/le-big-matt-kit-for-6.1ddae6e382bb3218eeb0fd5247de115a.jpg",
+    "img": "https://ibb.co/vjtWvZC",
     "name": "Emmy Squared",
     "category": "burguers",
     "dsc": "Le Big Matt Burger Kit for 6",
@@ -133,7 +133,7 @@ const products = [
   },
   {
     "id": "shake-shack-shackburger-16-pack",
-    "img": "img/cardapio/burguers/shake-shack-shackburger-16-pack.316f8b09144db65931ea29e34869287a.jpg",
+    "img": "https://ibb.co/gt2xy6k",
     "name": "Shake Shack",
     "category": "burguers",
     "dsc": "Shake Shack Shackburger® - 16 Pack",
@@ -141,7 +141,7 @@ const products = [
   },
   {
     "id": "21-usda-prime-burgers-pack-of-18-8oz-each",
-    "img": "img/cardapio/burguers/usda-prime-burgers-pack-of-18-8oz-each.274c67f15aa1c0b210dbf51801706670.jpg",
+    "img": "https://ibb.co/BBrhnCK",
     "name": "Peter Luger Steak House",
     "category": "burguers",
     "dsc": "USDA Prime Burgers - Pack of 18 (8oz each)",
@@ -149,7 +149,7 @@ const products = [
   },
   {
     "id": "double-stack-burger-kit-for-4",
-    "img": "img/cardapio/burguers/handf-double-stack-burger-kit-for-4.4ee9f54b1d6087e9996335f07c13e5cd.jpg",
+    "img": "https://ibb.co/8bnWyxk",
     "name": "Holeman & Finch",
     "category": "burguers",
     "dsc": "Double Stack Burger Kit for 4",
@@ -157,7 +157,7 @@ const products = [
   },
   {
     "id": "goldbelly-burger-bash-pack",
-    "img": "img/cardapio/burguers/the-burger-bash-package.bd9d12d031865940bbe5faf15f1a62f8.jpg",
+    "img": "https://ibb.co/ZHpGMTF",
     "name": "Pat LaFrieda Meats",
     "category": "burguers",
     "dsc": "Goldbelly \"Burger Bash\" Pack",
@@ -165,7 +165,7 @@ const products = [
   },
   {
     "id": "burger-au-poivre-kit-4-pack",
-    "img": "img/cardapio/burguers/burger-au-poivre-kit-4-pack.3ca0e39b02db753304cd185638dad518.jpg",
+    "img": "https://ibb.co/mbtY2hq",
     "name": "Raoul's",
     "category": "burguers",
     "dsc": "Burger Au Poivre Kit - 4 Pack",
@@ -173,7 +173,7 @@ const products = [
   },
   {
     "id": "goldbelly-burger-blend-4-lbs",
-    "img": "img/cardapio/burguers/goldbelly-burger-blend-1-lb.13a21b66edf7173a59c75c3a6d2f981b.jpg",
+    "img": "https://ibb.co/yXsH6qj",
     "name": "Flannery Beef",
     "category": "burguers",
     "dsc": "Goldbelly Burger Blend - 4 lbs.",
@@ -181,7 +181,7 @@ const products = [
   },
   {
     "id": "gotts-complete-cheeseburger-kit-for-8",
-    "img": "img/cardapio/burguers/gotts-complete-cheeseburger-kit-for-8.092aa049d00286fa1733d720decc782e.jpg",
+    "img": "https://ibb.co/y44jW4v",
     "name": "Gott's Roadside",
     "category": "burguers",
     "dsc": "Gott's Complete Cheeseburger Kit for 8",
@@ -189,7 +189,7 @@ const products = [
   },
   {
     "id": "gramercy-tavern-burger-kielbasa-combo",
-    "img": "img/cardapio/burguers/Gramercy-Tavern-Burger-and-Kielbasa-Kit-6.4.21-72ppi-1x1-47.jpg",
+    "img": "https://ibb.co/mNX5RHw",
     "name": "Gramercy Tavern",
     "category": "burguers",
     "dsc": "Gramercy Tavern Burger + Kielbasa Combo",
@@ -197,7 +197,7 @@ const products = [
   },
   {
     "id": "15259-german-chocolate-killer-brownie-tin-pack",
-    "img": "img/cardapio/sobremesas/german-chocolate-killer-brownie-tin-pack.5ebc34160f28767a9d94c4da2e04c4b9.jpg",
+    "img": "https://ibb.co/9vjWC7q",
     "name": "Killer Brownie®",
     "category": "sobremesas",
     "dsc": "German Chocolate Killer Brownie®",
@@ -205,7 +205,7 @@ const products = [
   },
   {
     "id": "jacques-world-famous-chocolate-chip-cookies",
-    "img": "img/cardapio/sobremesas/jacques-world-famous-chocolate-chip-cookies-6-pack.2217a14c443602493bba88aa9335319a.jpg",
+    "img": "https://ibb.co/JqFXqx8",
     "name": "Jacques Torres Chocolate",
     "category": "sobremesas",
     "dsc": "Jacques' World Famous Chocolate Chip Cookies - 6 Pack",
@@ -213,7 +213,7 @@ const products = [
   },
   {
     "id": "luigis-original-cannoli-pie",
-    "img": "img/cardapio/sobremesas/original-cannoli-pie.4cb5b9ba82f57b69b90765fd9f07aa1a.jpg",
+    "img": "https://ibb.co/SRC2LH4",
     "name": "The Cannoli Pie Company",
     "category": "sobremesas",
     "dsc": "Original Cannoli Pie",
@@ -221,7 +221,7 @@ const products = [
   },
   {
     "id": "sea-salted-caramel-swirl-cheesecake",
-    "img": "img/cardapio/sobremesas/sea-salted-caramel-swirl-cheesecake.e2825335433fb7a272a5d77649a6849e.jpg",
+    "img": "https://ibb.co/tQWqGNn",
     "name": "Cotton Blues Cheesecake Company",
     "category": "sobremesas",
     "dsc": "Sea-Salted Caramel Swirl Cheesecake",
@@ -229,7 +229,7 @@ const products = [
   },
   {
     "id": "brooklyn-blackout-cookie-brownie-combo-pack-2-tins",
-    "img": "img/cardapio/sobremesas/brooklyn-blackout-cookie-brownie-combo-pack-2-tins.d8805325baf6b23b4f01d119dc4531a7.jpg",
+    "img": "https://ibb.co/tCV5m8d",
     "name": "Brooklyn Blackout Company",
     "category": "sobremesas",
     "dsc": "Brooklyn Blackout Cookie + Brownie Combo Pack - 2 Tins",
@@ -237,7 +237,7 @@ const products = [
   },
   {
     "id": "best-seller-cupcake-dozen",
-    "img": "img/cardapio/sobremesas/best-seller-cupcake-dozen.f93b21993f6a2da11c975d45b9b0d08f.jpg",
+    "img": "https://ibb.co/ngB2sVR",
     "name": "Crave Cupcakes",
     "category": "sobremesas",
     "dsc": "Best Seller Cupcake Dozen",
@@ -245,7 +245,7 @@ const products = [
   },
   {
     "id": "choose-your-own-ice-cream-donuts-6-pack",
-    "img": "img/cardapio/sobremesas/choose-your-own-ice-cream-donuts-6-pack.24d0b44765a7c54237fcd7ea9d9d8093.jpg",
+    "img": "https://ibb.co/HHgC0m3",
     "name": "Elegant Desserts",
     "category": "sobremesas",
     "dsc": "Choose Your Own Ice Cream Donuts - 6 Pack",
@@ -253,7 +253,7 @@ const products = [
   },
   {
     "id": "17481-jewish-dessert-3-pack",
-    "img": "img/cardapio/sobremesas/jewish-classics-dessert-pack.7d4b76630f2fe75dcb7bbcf2501b7390.jpg",
+    "img": "https://ibb.co/PYDMMkM",
     "name": "Ess-a-Bagel",
     "category": "sobremesas",
     "dsc": "Jewish Classics Dessert Pack",
@@ -261,7 +261,7 @@ const products = [
   },
   {
     "id": "dessert-bar-care-package",
-    "img": "img/cardapio/sobremesas/dessert-bar-care-package.324aa28fe98c9dc67b75aac43376902e.jpg",
+    "img": "https://ibb.co/Rv3kgNg",
     "name": "Bread and Roses Bakery",
     "category": "sobremesas",
     "dsc": "Dessert Bar Care Package",
@@ -269,7 +269,7 @@ const products = [
   },
   {
     "id": "donut-cookies-12-pack",
-    "img": "img/cardapio/sobremesas/donut-cookies-12-pack.46f42c61c4a79fd2051a99b2f23e890e.jpg",
+    "img": "https://ibb.co/NmX4kgQ",
     "name": "Stan's Donuts",
     "category": "sobremesas",
     "dsc": "Donut Cookies - 12 Pack",
@@ -277,7 +277,7 @@ const products = [
   },
   {
     "id": "gulab-jamun-ice-cream-cakes-2-pack",
-    "img": "img/cardapio/sobremesas/gulab-jamun-ice-cream-cakes-2-pack.c45b4d0750ad22d741f84dc1f26d20e7.jpg",
+    "img": "https://ibb.co/nRCvzb7",
     "name": "Malai Ice Cream",
     "category": "sobremesas",
     "dsc": "Gulab Jamun Ice Cream Cakes - 2 Pack",
@@ -285,7 +285,7 @@ const products = [
   },
   {
     "id": "jacques-world-famous-chocolate-chip-cookies-12-pack",
-    "img": "img/cardapio/sobremesas/jacques-world-famous-chocolate-chip-cookies-12-pack.3b373bdd67cd25084182c21499f675d1.jpg",
+    "img": "https://ibb.co/c8pftNs",
     "name": "Jacques Torres Chocolate",
     "category": "sobremesas",
     "dsc": "Jacques' World Famous Chocolate Chip Cookies - 12 Pack",
@@ -293,7 +293,7 @@ const products = [
   },
   {
     "id": "hong-kong-boba-tea-kit-for-6",
-    "img": "img/cardapio/bebidas/hong-kong-boba-tea-kit-for-6.63841de36d8e5edfafa13023fc303285.jpg",
+    "img": "https://ibb.co/zmNZQFc",
     "name": "New Territories",
     "category": "bebidas",
     "dsc": "Hong Kong Boba Tea Kit for 6",
@@ -301,7 +301,7 @@ const products = [
   },
   {
     "id": "guys-caliente-margaritas-for-12",
-    "img": "img/cardapio/bebidas/guys-caliente-margaritas-for-12.ca8c6bc06b8f1039549385ffcebc749d.jpg",
+    "img": "https://ibb.co/h8z7Thd",
     "name": "Guy Fieri",
     "category": "bebidas",
     "dsc": "Guy's Caliente Margaritas for 12",
@@ -309,7 +309,7 @@ const products = [
   },
   {
     "id": "woodford-reserve-mint-julep-syrup",
-    "img": "img/cardapio/bebidas/woodford-reserve-mint-julep-syrup.ef523ac7cbae5f4aba6b058207f490d2.jpg",
+    "img": "https://ibb.co/Y37McbQ",
     "name": "Woodford Reserve",
     "category": "bebidas",
     "dsc": "Woodford Reserve Mint Julep Syrup",
@@ -317,7 +317,7 @@ const products = [
   },
   {
     "id": "new-orleans-hurricane-mix",
-    "img": "img/cardapio/bebidas/new-orleans-hurricane-mix.4613584fc65cb0787024dd24d2a8f4b3.jpg",
+    "img": "https://ibb.co/wRPqsv3",
     "name": "Franco's Hurricane Mix",
     "category": "bebidas",
     "dsc": "New Orleans Hurricane Mix",
@@ -325,7 +325,7 @@ const products = [
   },
   {
     "id": "margarita-mix",
-    "img": "img/cardapio/bebidas/margarita-mix.bd48a000d589d3147b14790af3c33fcd.jpg",
+    "img": "https://ibb.co/s3DTtzs",
     "name": "Johnny Sanchez",
     "category": "bebidas",
     "dsc": "Margarita Mix",
@@ -333,7 +333,7 @@ const products = [
   },
   {
     "id": "woodford-reserve-mint-julep-syrup-2-pack",
-    "img": "img/cardapio/bebidas/woodford-reserve-mint-julep-syrup-2-pack.0ac76063f151988113cbaabd0eaa829f.jpg",
+    "img": "https://ibb.co/vHgQFfZ",
     "name": "Woodford Reserve",
     "category": "bebidas",
     "dsc": "Woodford Reserve Mint Julep Syrup - 2 Pack",
@@ -341,7 +341,7 @@ const products = [
   },
   {
     "id": "unicorn-parade-milkshake-kit-for-8",
-    "img": "img/cardapio/bebidas/unicorn-parade-milkshake-kit-for-2.9052d04c1cf25b29442048bd3e535f21.jpg",
+    "img": "https://ibb.co/YBtsCpr",
     "name": "New Territories",
     "category": "bebidas",
     "dsc": "Unicorn Parade Milkshake Kit for 8",
@@ -349,7 +349,7 @@ const products = [
   },
   {
     "id": "chickpea-chiller-kit-for-6",
-    "img": "img/cardapio/bebidas/chickpea-chiller-kit-for-6.4310765c71ba524b5462ea9330d32446.jpg",
+    "img": "https://ibb.co/71ZkG7X",
     "name": "The Hummus & Pita Co.",
     "category": "bebidas",
     "dsc": "Chickpea Chiller Kit for 6",
@@ -357,7 +357,7 @@ const products = [
   },
   {
     "id": "15194-old-honey-barn-mint-julep-mixer-200ml",
-    "img": "img/cardapio/bebidas/old-honey-barn-mint-julep-mixer-200ml.e0b131d6d9b69963706b43fd4334ab74.jpg",
+    "img": "https://ibb.co/6gRMqSq",
     "name": "Old Honey Barn Mint Julep",
     "category": "bebidas",
     "dsc": "Old Honey Barn Mint Julep Mixer - 200ml Flask",
@@ -365,7 +365,7 @@ const products = [
   },
   {
     "id": "kentucky-derby-mint-julep-gift-set",
-    "img": "img/cardapio/bebidas/kentucky-derby-mint-julep-gift-set.79720eda4e9c8e3fcf9ecb5c79827f2c.jpg",
+    "img": "https://ibb.co/61n5ycL",
     "name": "Woodford Reserve",
     "category": "bebidas",
     "dsc": "Kentucky Derby Mint Julep Gift Set",
@@ -373,7 +373,7 @@ const products = [
   },
   {
     "id": "002-charleston-bloody-mary-mix-weekender-bold-and-spicy",
-    "img": "img/cardapio/bebidas/weekender-charleston-bloody-mary-mix-bold-and-spicy.c372868c9937e407a299a22001e210e2.jpg",
+    "img": "https://ibb.co/HCr74dg",
     "name": "Charleston Beverage Company",
     "category": "bebidas",
     "dsc": "Weekender | Charleston Bloody Mary Mix Bold & Spicy",
@@ -381,7 +381,7 @@ const products = [
   },
   {
     "id": "nola-cold-brew-concentrate-bag-in-box",
-    "img": "img/cardapio/bebidas/nola-cold-brew-concentrate-bag-in-box.3df6fde8bd83f29235565984ae8ed22b.jpg",
+    "img": "https://ibb.co/ryGnDJF",
     "name": "Grady's Cold Brew",
     "category": "bebidas",
     "dsc": "NOLA Cold Brew Concentrate Bag-in-Box",
@@ -389,7 +389,7 @@ const products = [
   },
   {
     "id": "2-lou-malnatis-deep-dish-pizzas",
-    "img": "img/cardapio/pizzas/2-lou-malnatis-deep-dish-pizzas.bf0fe065d251a9cca3925b269d443a27.jpg",
+    "img": "https://ibb.co/x69jFVx",
     "name": "Lou Malnati's Pizza",
     "category": "pizzas",
     "dsc": "2 Lou Malnati's Deep Dish Pizzas",
@@ -397,7 +397,7 @@ const products = [
   },
   {
     "id": "23699-choose-your-own-thin-crust-pizza-4-pack",
-    "img": "img/cardapio/pizzas/choose-your-own-thin-crust-pizza-4-pack.b928a2008eab50c65dc87e59b5952190.jpg",
+    "img": "https://ibb.co/CQQ8pmr",
     "name": "Bartolini's",
     "category": "pizzas",
     "dsc": "Choose Your Own Thin Crust Pizza - 4 Pack",
@@ -405,7 +405,7 @@ const products = [
   },
   {
     "id": "choose-your-own-new-haven-style-pizza-6-pack",
-    "img": "img/cardapio/pizzas/choose-your-own-new-haven-style-pizza-6-pack.ab82828afc6172cdd4017556c15e36dd.jpg",
+    "img": "https://ibb.co/Fb292vb",
     "name": "Zuppardi's Apizza",
     "category": "pizzas",
     "dsc": "New Haven-Style Pizza - 6 Pack (Choose Your Own)",
@@ -413,7 +413,7 @@ const products = [
   },
   {
     "id": "6-lou-malnatis-deep-dish-pizzas",
-    "img": "img/cardapio/pizzas/6-lou-malnatis-deep-dish-pizzas.f59993181da5d295668c8a6fb856055e.jpg",
+    "img": "https://ibb.co/cvnV5fP",
     "name": "Lou Malnati's Pizza",
     "category": "pizzas",
     "dsc": "6 Lou Malnati's Deep Dish Pizzas",
@@ -421,7 +421,7 @@ const products = [
   },
   {
     "id": "wood-fired-pizzas-best-seller-4-pack",
-    "img": "img/cardapio/pizzas/wood-fired-pizzas-best-seller-4-pack.1653bb05922ba153ac178f8365d27f6d.jpg",
+    "img": "https://ibb.co/G5HgwZw",
     "name": "Pizzeria Bianco",
     "category": "pizzas",
     "dsc": "Wood Fired Pizzas Best Seller - 4 Pack",
@@ -429,7 +429,7 @@ const products = [
   },
   {
     "id": "236991-choose-your-own-deep-dish-pizza-3-pack",
-    "img": "img/cardapio/pizzas/choose-your-own-deep-dish-pizza-3-pack.4111791511244a4946bb5c9ad2c17da9.jpg",
+    "img": "https://ibb.co/JK5nhJX",
     "name": "Bartolini's",
     "category": "pizzas",
     "dsc": "Choose Your Own Deep Dish Pizza - 3 Pack",
@@ -437,7 +437,7 @@ const products = [
   },
   {
     "id": "choose-your-own-detroit-style-pizza-3-pack",
-    "img": "img/cardapio/pizzas/detroit-style-pizza-choose-your-own-3-pack.6b6f4909ffd4066d5471e70eac5c3d89.jpg",
+    "img": "https://ibb.co/kBSRPvc",
     "name": "Emmy Squared",
     "category": "pizzas",
     "dsc": "Detroit-Style Pizza - Choose Your Own 3 Pack",
@@ -445,7 +445,7 @@ const products = [
   },
   {
     "id": "brooklyn-pizza-choose-your-own-5-pack",
-    "img": "img/cardapio/pizzas/brooklyn-pizza-choose-your-own-5-pack.edc4f476a75207d0af840ce6f225f2b3.jpg",
+    "img": "https://ibb.co/ydRwvY3",
     "name": "Paesan's Pizza",
     "category": "pizzas",
     "dsc": "Brooklyn Pizza - Choose Your Own 5 Pack",
@@ -453,7 +453,7 @@ const products = [
   },
   {
     "id": "choose-your-own-chicago-deep-dish-pizza-4-pack",
-    "img": "img/cardapio/pizzas/chicago-deep-dish-pizza-4-pack.49927daafa8c147fe9bb2a113e56668e.jpg",
+    "img": "https://ibb.co/Mkf4yXf",
     "name": "My Pi Pizza",
     "category": "pizzas",
     "dsc": "Chicago Deep Dish Pizza - 4 Pack",
@@ -461,7 +461,7 @@ const products = [
   },
   {
     "id": "4-lou-malnatis-deep-dish-pizzas",
-    "img": "img/cardapio/pizzas/4-lou-malnatis-deep-dish-pizzas.8c79eb7506b5752ab3387d8174246b17.jpg",
+    "img": "https://ibb.co/PxJXbry",
     "name": "Lou Malnati's Pizza",
     "category": "pizzas",
     "dsc": "4 Lou Malnati's Deep Dish Pizzas",
@@ -469,7 +469,7 @@ const products = [
   },
   {
     "id": "tonys-custom-pizza-3-pack",
-    "img": "img/cardapio/pizzas/choose-your-own-pizza-3-pack.fcf7a43e38593007ef2857fe16d6dd26.jpg",
+    "img": "https://ibb.co/PxJXbry",
     "name": "Tony's Pizza Napoletana",
     "category": "pizzas",
     "dsc": "Choose Your Own Pizza - 3 Pack",
@@ -477,7 +477,7 @@ const products = [
   },
   {
     "id": "plain-thin-crust-pizza-4-pack",
-    "img": "img/cardapio/pizzas/plain-thin-crust-pizza-4-pack.5540e9d166db2f0853643c6517e4a225.jpg",
+    "img": "https://ibb.co/mNs3t84",
     "name": "The Columbia Inn",
     "category": "pizzas",
     "dsc": "Plain Thin Crust Pizza - 4 Pack",
