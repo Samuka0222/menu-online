@@ -2,7 +2,12 @@
 
 import { createContext, useState } from 'react'
 
-export const SelectedCategoryContext = createContext({})
+interface SelectedCategoryContextProps {
+  selectedCategory: string
+  setSelectedCategory: React.Dispatch<React.SetStateAction<string>>
+}
+
+export const SelectedCategoryContext = createContext<SelectedCategoryContextProps | undefined>(undefined)
 
 export default function SelectedCategoryProvider({
   children
