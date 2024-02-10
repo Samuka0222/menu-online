@@ -1,7 +1,24 @@
-const Menu = () => {
+import SectionTitle from "@/app/_components/section-title";
+import getProducts from "@/app/_actions/getProducts";
+import Categories from "./categories";
+
+const Menu = async () => {
+  const { categories, menuProducts } = await getProducts();
+
   return (
-    <h1>Menu</h1>
+    <section className="mt-16 w-full">
+      <SectionTitle
+        title="Cardápio"
+        description="Conheça o nosso cardápio:"
+      />
+
+      <div>
+        <Categories categories={categories}/>
+      </div>
+
+      
+    </section>
   );
 }
- 
+
 export default Menu;
