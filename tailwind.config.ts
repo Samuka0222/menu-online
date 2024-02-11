@@ -55,7 +55,7 @@ const config = {
         },
       },
       boxShadow: {
-        'default': "0px 10px 25px -3px rgba(0,0,0,0.1);"
+        'default': "0px 10px 15px -3px rgba(0,0,0,0.1);"
       },
       borderRadius: {
         lg: "var(--radius)",

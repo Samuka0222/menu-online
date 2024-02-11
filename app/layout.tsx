@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { cn } from "./_lib/utils";
 import SelectedCategoryProvider from "./_providers/selectedCategory";
+import { CartProvider } from "./_providers/cartProvider";
 
 const poppins = Poppins({ weight: ['100', "200", "300", "400", "500", "600", "700", "800", "900"], subsets: ['latin'] })
 
@@ -23,7 +24,9 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className={cn(poppins.className, 'min-h-screen bg-background font-sans antialiased')}>
         <SelectedCategoryProvider>
-          {children}
+          <CartProvider>
+            {children}
+          </CartProvider>
         </SelectedCategoryProvider>
       </body>
     </html>
