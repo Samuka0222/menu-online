@@ -50,7 +50,7 @@ const Item = ({ product }: ItemProps) => {
           <h4 className="text-2xl font-bold text-primary">R$ {Number(product.price).toFixed(2).replace('.', ',')}</h4>
         </div>
         <CardFooter className="min-w-[40px] flex flex-col justify-center items-center h-full p-0 gap-1">
-          <AddCartButton />
+          <AddCartButton product={product} />
         </CardFooter>
       </CardContent>
     </Card>

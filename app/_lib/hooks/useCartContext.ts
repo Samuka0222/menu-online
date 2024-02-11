@@ -63,7 +63,7 @@ export default function useCartContext() {
         }
       }
     } else {
-      setCart([...cart, { item: newProduct, quantity: 1 }]);
+      return;
     }
   }
 
@@ -73,7 +73,10 @@ export default function useCartContext() {
         return total + Number(item.price) * quantity;
       }, 0)
     );
+
+    console.log(cart)
   }, [cart])
+  
 
   return {
     cart,
