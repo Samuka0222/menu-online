@@ -44,7 +44,7 @@ const Categories = ({ categories }: CategoriesProps) => {
         categories.map(category => (
           <Button
             variant={selectedCategory === category.category ? 'default' : 'outline'}
-            key={`${category}`}
+            key={`${category.category}`}
             className="capitalize text-black font-semibold flex gap-1 text-lg"
             onClick={() => handleClick(category.category)}
           >
