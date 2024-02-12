@@ -74,7 +74,7 @@ export default function useCartContext() {
       }, 0)
     );
 
-    console.log(cart)
+    // console.log(cart)
   }, [cart])
   
 
