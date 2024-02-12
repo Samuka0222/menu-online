@@ -1,6 +1,6 @@
 'use client'
 
-import { PlusCircle, MinusCircle } from "lucide-react";
+import { PlusIcon, MinusIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import useCartContext from "@/app/_lib/hooks/useCartContext";
 import { Product } from "@prisma/client";
@@ -35,14 +35,15 @@ const AddCartButton = ({ product }: AddCartButtonProps) => {
 
   return (
     <>
-      <Button size='icon' onClick={handleAddClick}>
-        <PlusCircle />
+      <Button size='icon' className="shadow-none rounded-full" onClick={handleAddClick}>
+        <PlusIcon />
       </Button>
       <span className="text-xl font-bold">
+        {/* TODO: mostrar quantidade de itens dentro do carrinho, invés de criar um novo estado */}
         {quantity}
       </span>
-      <Button size='icon' onClick={handleRemoveClick}>
-        <MinusCircle />
+      <Button size='icon' className="shadow-none rounded-full" onClick={handleRemoveClick}>
+        <MinusIcon />
       </Button>
     </>
   );

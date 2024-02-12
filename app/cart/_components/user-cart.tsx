@@ -2,6 +2,7 @@
 
 import CartItem from "@/app/_components/cart-item";
 import useCartContext from "@/app/_lib/hooks/useCartContext";
+import { ShoppingBagIcon } from "lucide-react";
 
 const UserCart = () => {
   const context = useCartContext();
@@ -10,16 +11,29 @@ const UserCart = () => {
     throw new Error("No context provided for UserCart")
   };
 
-  const { cart } = context;
-  
+  const { cart, addProduct, deleteProduct, removeProduct } = context;
+
   return (
-    <div className="px-5 py-6">
-      <h1>Seu carrinho:</h1>
-      <div className="flex flex-col gap-4">
+    <div className="px-5 py-3 h-full w-full">
+      <h1 className="text-2xl font-medium text-black mb-4">Seu carrinho:</h1>
+      <div className="flex flex-col gap-4 h-full">
         {
-          cart.map((product) => (
-            <CartItem key={product.item.id} product={product} />
-          ))
+          cart.length > 0
+            ? cart.map((product) => (
+              <CartItem
+                key={product.item.id}
+                product={product}
+                addProduct={addProduct}
+                deleteProduct={deleteProduct}
+                removeProduct={removeProduct}
+              />
+            ))
+            : <div className="h-full w-full flex flex-col justify-center items-center">
+              <span className="h-12 w-12 rounded-full bg-[#fff2cc] flex justify-center items-center mb-2">
+                <ShoppingBagIcon className="text-primary" />
+              </span>
+              <p className="text-lg font-medium">Seu carrinho está vazio.</p>
+            </div>
         }
       </div>
     </div>
