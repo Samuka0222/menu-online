@@ -38,7 +38,7 @@ const NavBar = () => {
                 Fazer Reserva
               </Button>
               <Button variant='outline' className="w-full justify-start font-bold" asChild>
-                <Link href='/cart'>
+                <Link href='/cart/your-cart'>
                   <ShoppingBagIcon className="mr-2" />
                   Carrinho
                 </Link>
