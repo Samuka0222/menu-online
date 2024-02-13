@@ -3,6 +3,7 @@
 import { Button } from "@/app/_components/ui/button";
 import useCartContext from "@/app/_lib/hooks/useCartContext";
 import { Bike } from "lucide-react";
+import Link from "next/link";
 
 const CartFooter = () => {
   const cartContext = useCartContext();
@@ -11,7 +12,7 @@ const CartFooter = () => {
     throw new Error('Não foi possível encontrar o contexto.')
   }
 
-  const { cartValue } = cartContext;
+  const { cart , cartValue } = cartContext;
 
   return (
     <div className="flex w-full flex-col justify-center items-end border-t-2 pt-4 px-5 py-6">
@@ -23,8 +24,10 @@ const CartFooter = () => {
       </span>
 
       <div className="mt-4">
-        <Button size='lg' className="text-lg rounded-xl">
-          Continuar
+        <Button size='lg' className="text-lg rounded-xl" asChild>
+          <Link href={cart.length < 1 ? '' : '/cart/address'}>
+            Continuar
+          </Link>
         </Button>
       </div>
     </div>

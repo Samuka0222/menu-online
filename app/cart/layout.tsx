@@ -7,9 +7,9 @@ const CartLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <main className="h-screen w-screen flex flex-col justify-between">
+    <main className="h-screen w-screen flex flex-col justify-between overflow-hidden">
       <CartHeader />
-      <div className="flex flex-1 w-full">
+      <div className="flex flex-1 w-full overflow-y-auto pb-2">
         {children}
       </div>
       <CartFooter />
