@@ -2,7 +2,7 @@ import UserCart from "../_components/user-cart";
 
 const CartPage = () => {
   return (
-    <main>
+    <main className="w-full">
       <UserCart />
     </main>
   );

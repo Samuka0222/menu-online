@@ -14,9 +14,9 @@ const UserCart = () => {
   const { cart, addProduct, deleteProduct, removeProduct } = context;
 
   return (
-    <div className="px-5 py-3 h-full w-full">
+    <div className="px-5 py-3 h-full w-full items-center">
       <h1 className="text-2xl font-medium text-black mb-4">Seu carrinho:</h1>
-      <div className="flex flex-col gap-4 h-full">
+      <div className="flex flex-col gap-4 h-full items-center justify-center">
         {
           cart.length > 0
             ? cart.map((product) => (

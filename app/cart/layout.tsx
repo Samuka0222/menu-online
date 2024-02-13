@@ -1,3 +1,4 @@
+import CartFooter from "./_components/cart-footer";
 import CartHeader from "./_components/cart-header";
 
 const CartLayout = ({
@@ -6,9 +7,12 @@ const CartLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <main>
-        <CartHeader />
+    <main className="h-screen w-screen flex flex-col justify-between">
+      <CartHeader />
+      <div className="flex flex-1 w-full">
         {children}
+      </div>
+      <CartFooter />
     </main>
   );
 }
