@@ -3,7 +3,7 @@
 import AddCartButton from "@/app/_components/add-cart-button";
 import { Card, CardContent, CardFooter } from "@/app/_components/ui/card";
 import { Skeleton } from "@/app/_components/ui/skeleton";
-import { SelectedCategoryContext } from "@/app/_providers/selectedCategory";
+import { SelectedCategoryContext } from "@/app/_providers/selected-category-provider";
 import { Product } from "@prisma/client";
 import { Divide } from "lucide-react";
 import Image from "next/image";

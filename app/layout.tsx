@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { cn } from "./_lib/utils";
-import SelectedCategoryProvider from "./_providers/selectedCategory";
-import { CartProvider } from "./_providers/cartProvider";
+import SelectedCategoryProvider from "./_providers/selected-category-provider";
+import { CartProvider } from "./_providers/cart-provider";
 
 const poppins = Poppins({ weight: ['100', "200", "300", "400", "500", "600", "700", "800", "900"], subsets: ['latin'] })
 

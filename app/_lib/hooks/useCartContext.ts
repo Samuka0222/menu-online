@@ -1,6 +1,6 @@
 'use client'
 
-import { CartContext } from "@/app/_providers/cartProvider";
+import { CartContext } from "@/app/_providers/cart-provider";
 import { Product } from "@prisma/client";
 import { useContext, useEffect, useState } from "react";
 

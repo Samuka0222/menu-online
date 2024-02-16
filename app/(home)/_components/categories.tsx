@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from "@/app/_components/ui/button";
-import { SelectedCategoryContext } from "@/app/_providers/selectedCategory";
+import { SelectedCategoryContext } from "@/app/_providers/selected-category-provider";
 import { Beef, Beer, Drumstick, HelpCircle, IceCream, Pizza, Sandwich } from "lucide-react";
 import { useContext } from "react";
 
