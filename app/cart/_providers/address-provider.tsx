@@ -5,7 +5,8 @@ import { createContext, useState } from "react";
 interface IAddress {
   zipCode: string;
   street: string,
-  number: number,
+  neighborhood: string,
+  number: string,
   city: string,
   state: string,
   complement?: string,
@@ -23,7 +24,8 @@ export const AddressProvider = ({ children }: { children: React.ReactNode }) => 
   const [address, setAddress] = useState<IAddress>({
     zipCode: "",
     street: "",
-    number: 0,
+    neighborhood: "",
+    number: "",
     city: "",
     state: "",
     complement: "",

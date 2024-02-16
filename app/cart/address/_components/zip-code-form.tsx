@@ -7,47 +7,43 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/app/_components/ui/input";
 import { Button } from "@/app/_components/ui/button";
 import { SearchIcon } from "lucide-react";
+import { useContext, useEffect } from "react";
+import { AddressContext } from "../../_providers/address-provider";
+import getZipCode from "../../_actions/get-zip-code";
+
 
 const formSchema = z.object({
   zipCode: z.string({
     required_error: 'CEP deve ser informado.'
   }).length(8, {
-    message: "O CEP deve conter 8 dígitos",
+    message: "O CEP deve conter 8 dígitos e somente números",
   }),
-  // street: z.string({
-  //   required_error: 'Rua deve ser informada.'
-  // }).min(3, {
-  //   message: "O endereço deve conter no mínimo 3 caracteres",
-  // }),
-  // number: z.number({
-  //   required_error: "O número deve ser informado.",
-  //   invalid_type_error: "O número deve ser preenchido somente com números.",
-  // }),
-  // city: z.string({
-  //   required_error: "A cidade deve ser informada.",
-  // }),
-  // state: z.string({
-  //   required_error: "O estado deve ser informado.",
-  // }),
-  // complement: z.string(),
 })
 
 const ZipCodeForm = () => {
+  const context = useContext(AddressContext);
+
+  if(!context) {
+    throw new Error('Context not found!')
+  }
+
+  const { address, setAddress } = context;
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      zipCode: "",
-      // street: "",
-      // number: 0,
-      // city: "",
-      // state: "",
-      // complement: "",
+      zipCode: address.zipCode,
     }
   })
 
-  const handleSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values)
+  const handleSubmit = async (values: z.infer<typeof formSchema>) => {
+    const res = await getZipCode(values.zipCode)
+    setAddress(res)
   }
+
+  useEffect(() => {
+    console.log(address)
+  }, [address])
 
   return (
     <Form {...form}>

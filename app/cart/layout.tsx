@@ -1,5 +1,8 @@
+'use client'
+
 import CartFooter from "./_components/cart-footer";
 import CartHeader from "./_components/cart-header";
+import { AddressProvider } from "./_providers/address-provider";
 
 const CartLayout = ({
   children,
@@ -7,13 +10,14 @@ const CartLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <main className="h-screen w-screen flex flex-col justify-between overflow-hidden">
-      <CartHeader />
-      <div className="flex flex-1 w-full overflow-y-auto pb-2">
-        {children}
-      </div>
-      <CartFooter />
-    </main>
+    <AddressProvider>
+      <main className="h-screen w-screen flex flex-col justify-between overflow-hidden">
+        <CartHeader />
+        <div className="flex flex-1 w-full overflow-y-auto pb-2">
+          {children}
+        </div>
+      </main>
+    </AddressProvider>
   );
 }
 
