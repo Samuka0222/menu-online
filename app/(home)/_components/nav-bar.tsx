@@ -3,6 +3,7 @@ import { Button } from "@/app/_components/ui/button"
 import { LogInIcon, MenuIcon, PhoneCallIcon, ShoppingBagIcon } from "lucide-react";
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/app/_components/ui/sheet";
 import Link from "next/link";
+import CartIndicator from "@/app/_components/cart-indicator";
 
 const NavBar = () => {
   return (
@@ -18,8 +19,11 @@ const NavBar = () => {
       <div>
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant='outline' size='icon' className="border-none shadow-default" >
-              <MenuIcon size={30} />
+            <Button variant='outline' size='icon' className="border-none shadow-default h-10 w-12 relative">
+              <div>
+                <CartIndicator />
+                <MenuIcon size={30} fill="black" />
+              </div>
             </Button>
           </SheetTrigger>
 
@@ -37,8 +41,9 @@ const NavBar = () => {
                 <PhoneCallIcon className="mr-2" />
                 Fazer Reserva
               </Button>
-              <Button variant='outline' className="w-full justify-start font-bold" asChild>
+              <Button variant='outline' className="w-full justify-start font-bold relative" asChild>
                 <Link href='/cart/your-cart'>
+                  <CartIndicator />
                   <ShoppingBagIcon className="mr-2" />
                   Carrinho
                 </Link>
