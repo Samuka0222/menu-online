@@ -5,6 +5,7 @@ import { cn } from "./_lib/utils";
 import SelectedCategoryProvider from "./_providers/selected-category-provider";
 import { CartProvider } from "./_providers/cart-provider";
 import { Toaster } from "@/app/_components/ui/sonner";
+import AuthProvider from "./_providers/auth-provider";
 
 const poppins = Poppins({ weight: ['100', "200", "300", "400", "500", "600", "700", "800", "900"], subsets: ['latin'] })
 
@@ -24,14 +25,16 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={cn(poppins.className, 'min-h-screen bg-background font-sans antialiased')}>
-        <SelectedCategoryProvider>
-          <CartProvider>
-            <main>
-              {children}
-              <Toaster position="bottom-right" richColors />
-            </main>
-          </CartProvider>
-        </SelectedCategoryProvider>
+        <AuthProvider>
+          <SelectedCategoryProvider>
+            <CartProvider>
+              <main>
+                {children}
+                <Toaster position="bottom-right" richColors />
+              </main>
+            </CartProvider>
+          </SelectedCategoryProvider>
+        </AuthProvider>
       </body>
     </html>
   );

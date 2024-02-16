@@ -1,11 +1,25 @@
+'use client'
+
 import Image from "next/image";
 import { Button } from "@/app/_components/ui/button"
-import { LogInIcon, MenuIcon, PhoneCallIcon, ShoppingBagIcon } from "lucide-react";
+import { LogInIcon, MenuIcon, PhoneCallIcon, ShoppingBagIcon, UserCircle } from "lucide-react";
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/app/_components/ui/sheet";
 import Link from "next/link";
 import CartIndicator from "@/app/_components/cart-indicator";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { Avatar, AvatarImage } from "@/app/_components/ui/avatar";
 
 const NavBar = () => {
+  const { data, status } = useSession();
+
+  const handleLoginButton = async () => {
+    await signIn()
+  }
+
+  const handleLogoutButton = async () => {
+    await signOut()
+  }
+
   return (
     <nav className="pl-2 pr-6 flex justify-between items-center">
       <div>
@@ -31,12 +45,41 @@ const NavBar = () => {
             <SheetHeader>
               <SheetTitle>Menu On-Line</SheetTitle>
             </SheetHeader>
-
+            <div className="flex items-center gap-2 mt-4">
+              {
+                status === 'authenticated'
+                  ? <>
+                    <div>
+                      <Avatar>
+                        <AvatarImage src={data.user?.image ?? ''} />
+                      </Avatar>
+                    </div>
+                    <h2 className="font-semibold text-black">{data.user?.name}</h2>
+                  </>
+                  : <>
+                    <div>
+                      <UserCircle size={30}/>
+                    </div>
+                    <h2 className="font-semibold text-black">Olá, usuário!</h2>
+                  </>
+              }
+            </div>
             <div className="mt-5 flex flex-col gap-4 h-[88%]">
-              <Button variant='outline' className="w-full justify-start font-bold">
-                <LogInIcon className="mr-2" />
-                Fazer Login
-              </Button>
+              {
+                status === 'unauthenticated'
+                  ? <>
+                    <Button variant='outline' className="w-full justify-start font-bold" onClick={handleLoginButton}>
+                      <LogInIcon className="mr-2" />
+                      Fazer Login
+                    </Button>
+                  </>
+                  : <>
+                    <Button variant='outline' className="w-full justify-start font-bold" onClick={handleLogoutButton}>
+                      <LogInIcon className="mr-2" />
+                      Fazer Logout
+                    </Button>
+                  </>
+              }
               <Button variant='outline' className="w-full justify-start font-bold">
                 <PhoneCallIcon className="mr-2" />
                 Fazer Reserva
