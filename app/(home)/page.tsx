@@ -7,10 +7,11 @@ import Menu from "./_components/menu";
 import Reviews from "./_components/reviews";
 import Booking from "./_components/booking";
 import Footer from "./_components/footer";
+import CartButton from "./_components/cart-button";
 
 const HomePage = () => {
   return <>
-    <main className="flex flex-col">
+    <main className="flex flex-col relative">
       <NavBar />
 
       <section className="mt-12 flex flex-col justify-center items-center px-5">
@@ -45,6 +46,7 @@ const HomePage = () => {
         <Reviews />
         <Booking />
       </section>
+      <CartButton />
       <Footer />
     </main>
   </>;
