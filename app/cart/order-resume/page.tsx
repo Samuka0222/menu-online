@@ -23,6 +23,7 @@ const OrderResumePage = () => {
   `
 
   return (
+    // TODO: Verificar layout quando tem muitos itens no carrinho.
     <main className="px-5 w-full overflow-hidden">
       <h1 className="text-2xl font-medium text-black mb-4">Resumo do pedido:</h1>
       <div>
