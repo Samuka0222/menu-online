@@ -1,4 +1,3 @@
-import CartFooter from "../_components/cart-footer";
 import AddressForm from "./_components/address-form";
 import ZipCodeForm from "./_components/zip-code-form";
 
@@ -11,7 +10,6 @@ const SelectAddressPage = () => {
           <ZipCodeForm />
           <AddressForm />
         </div>
-      <CartFooter buttonOn={false} />
     </main>
   );
 }

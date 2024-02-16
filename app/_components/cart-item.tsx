@@ -31,7 +31,6 @@ const CartItem = ({ product, addProduct, removeProduct, deleteProduct }: CartIte
           <h2 className="font-bold text-primary text-2xl">R$ {Number(product.item.price).toFixed(2).replace('.', ',')}</h2>
         </div>
       </div>
-
       <div className="flex">
         <div className="flex gap-1">
           <Button size='icon' className="w-9 h-9" onClick={() => addProduct(product.item)}>
@@ -48,6 +47,7 @@ const CartItem = ({ product, addProduct, removeProduct, deleteProduct }: CartIte
           <XIcon />
         </Button>
       </div>
+
     </div>
   );
 }

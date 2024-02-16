@@ -4,12 +4,9 @@ import { Button } from "@/app/_components/ui/button";
 import useCartContext from "@/app/_lib/hooks/useCartContext";
 import { Bike } from "lucide-react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
-interface CartFooterProps {
-  buttonOn?: boolean;
-}
-
-const CartFooter = ({ buttonOn = true }: CartFooterProps) => {
+const CartFooter = () => {
   const cartContext = useCartContext();
 
   if (!cartContext) {
@@ -17,6 +14,9 @@ const CartFooter = ({ buttonOn = true }: CartFooterProps) => {
   }
 
   const { cart, cartValue } = cartContext;
+
+  const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <div className="flex w-full flex-col justify-center items-end border-t-2 pt-4 px-5 py-6">
@@ -28,12 +28,22 @@ const CartFooter = ({ buttonOn = true }: CartFooterProps) => {
       </span>
 
       {
-        buttonOn && (
+        pathname === '/cart/your-cart' && (
           <div className="mt-4">
             <Button size='lg' className="text-lg rounded-xl" asChild>
               <Link href={cart.length < 1 ? '' : '/cart/address'}>
                 Continuar
               </Link>
+            </Button>
+          </div>
+        )
+      }
+
+      {
+        pathname === '/cart/order-resume' && (
+          <div className="mt-4">
+            <Button size='lg' className="text-lg rounded-xl">
+                Fazer Pedido
             </Button>
           </div>
         )

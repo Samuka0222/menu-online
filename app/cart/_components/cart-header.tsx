@@ -3,7 +3,6 @@
 import { Button } from "@/app/_components/ui/button";
 import { cn } from "@/app/_lib/utils";
 import { ArrowBigLeftDashIcon } from "lucide-react";
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
 const CartHeader = () => {

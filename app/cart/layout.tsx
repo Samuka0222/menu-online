@@ -16,6 +16,7 @@ const CartLayout = ({
         <div className="flex flex-1 w-full overflow-y-auto pb-2">
           {children}
         </div>
+        <CartFooter />
       </main>
     </AddressProvider>
   );
