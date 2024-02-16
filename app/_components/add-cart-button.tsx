@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import useCartContext from "@/app/_lib/hooks/useCartContext";
 import { Product } from "@prisma/client";
 import { useState } from "react";
+import { toast } from "sonner";
 
 interface AddCartButtonProps {
   product: Product;
@@ -23,6 +24,7 @@ const AddCartButton = ({ product }: AddCartButtonProps) => {
   const handleAddClick = () => {
     addProduct(product)
     setQuantity(quantity + 1)
+    toast.success('Item adicionado ao carrinho.')
   }
 
   const handleRemoveClick = () => {
@@ -31,6 +33,7 @@ const AddCartButton = ({ product }: AddCartButtonProps) => {
       return
     }
     setQuantity(quantity - 1)
+    toast.error('Item removido do carrinho.')
   }
 
   return (
