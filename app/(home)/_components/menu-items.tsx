@@ -41,7 +41,7 @@ const Item = ({ product }: ItemProps) => {
         <CardContent className="flex h-full p-3 gap-3 w-full items-center">
           <div className="flex justify-center items-center h-full min-w-[100px]">
             <Image
-              src='https://utfs.io/f/e7f87c77-e476-489e-add7-7087d11096dd-jeu9k0.63841de36d8e5edfafa13023fc303285.jpg'
+              src={product.imageUrl}
               alt={product.description}
               width={100}
               height={100}
