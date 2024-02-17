@@ -595,7 +595,6 @@ const seed = async () => {
       await prisma.product.create({
         data: {
           ...productInput,
-          orderId: ''
         }
       });
     }
