@@ -1,5 +1,5 @@
 import SectionTitle from "@/app/_components/section-title";
-import getProducts from "@/app/_actions/getProducts";
+import getProducts from "@/app/_actions/get-products";
 import Categories from "./categories";
 import MenuItems from "./menu-items";
 

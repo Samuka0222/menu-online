@@ -24,6 +24,7 @@ const MenuItems = ({ products }: MenuItemsProps) => {
   const { selectedCategory } = context;
 
   return (
+    // TODO: FIltrar os produtos para mostrar apenas 8 e adicionar o botão "ver mais"
     <div className="flex flex-col gap-3 w-full">
       {
         products.map(product => (
