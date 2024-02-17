@@ -8,6 +8,7 @@ import Link from "next/link";
 import CartIndicator from "@/app/_components/cart-indicator";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarImage } from "@/app/_components/ui/avatar";
+import makeReservation from "@/app/_actions/make-reservation";
 
 const NavBar = () => {
   const { data, status } = useSession();
@@ -18,6 +19,10 @@ const NavBar = () => {
 
   const handleLogoutButton = async () => {
     await signOut()
+  }
+
+  const handleReservationClick = () => {
+    makeReservation();
   }
 
   return (
@@ -80,10 +85,11 @@ const NavBar = () => {
                     </Button>
                   </>
               }
-              <Button variant='outline' className="w-full justify-start font-bold">
+              <Button variant='outline' className="w-full justify-start font-bold" onClick={handleReservationClick}>
                 <PhoneCallIcon className="mr-2" />
                 Fazer Reserva
               </Button>
+
               <Button variant='outline' className="w-full justify-start font-bold relative" asChild>
                 <Link href='/cart/your-cart'>
                   <CartIndicator />
