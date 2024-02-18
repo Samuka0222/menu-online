@@ -4,19 +4,37 @@ import { Button } from "@/app/_components/ui/button";
 import useCartContext from "@/app/_lib/hooks/useCartContext";
 import { Bike } from "lucide-react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import makeOrder from "../_actions/make-order";
+import { useContext } from "react";
+import { AddressContext } from "../_providers/address-provider";
+import { useSession } from "next-auth/react";
 
 const CartFooter = () => {
+  const { data } = useSession();
   const cartContext = useCartContext();
+  const addressContext = useContext(AddressContext);
 
-  if (!cartContext) {
+  if (!cartContext || !addressContext) {
     throw new Error('Não foi possível encontrar o contexto.')
   }
 
   const { cart, cartValue } = cartContext;
+  const { address } = addressContext;
 
   const pathname = usePathname();
-  const router = useRouter();
+  const handleOrderClick = async () => {
+    try {
+      await makeOrder({
+        address: address,
+        cart: cart,
+        date: new Date(),
+        userId: (data?.user as any).id
+      })
+    } catch (error) {
+      console.error('Não foi possível fazer o pedido')
+    }
+  };
 
   return (
     <div className="flex w-full flex-col justify-center items-end border-t-2 pt-4 px-5 py-6">
@@ -42,7 +60,7 @@ const CartFooter = () => {
       {
         pathname === '/cart/order-resume' && (
           <div className="mt-4">
-            <Button size='lg' className="text-lg rounded-xl">
+            <Button size='lg' className="text-lg rounded-xl" onClick={handleOrderClick}>
                 Fazer Pedido
             </Button>
           </div>

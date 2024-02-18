@@ -7,7 +7,7 @@ const getZipCode = async (zipCode: string) => {
       zipCode: zipCode,
       street: convertedResponse.logradouro,
       neighborhood: convertedResponse.bairro,
-      number: 0,
+      number: '0',
       city: convertedResponse.localidade,
       complement: '',
       state: convertedResponse.uf

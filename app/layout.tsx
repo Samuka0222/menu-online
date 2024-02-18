@@ -30,7 +30,7 @@ export default function RootLayout({
             <CartProvider>
               <main>
                 {children}
-                <Toaster position="bottom-right" richColors />
+                <Toaster position="top-right" richColors />
               </main>
             </CartProvider>
           </SelectedCategoryProvider>

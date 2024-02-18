@@ -1,16 +1,7 @@
 'use client'
 
 import { createContext, useState } from "react";
-
-interface IAddress {
-  zipCode: string;
-  street: string,
-  neighborhood: string,
-  number: string,
-  city: string,
-  state: string,
-  complement?: string,
-}
+import IAddress from "../_lib/interfaces/IAddress";
 
 interface AddressContextProps {
   address: IAddress;
@@ -21,6 +12,8 @@ export const AddressContext = createContext<AddressContextProps | undefined>(und
 AddressContext.displayName = "Address Context";
 
 export const AddressProvider = ({ children }: { children: React.ReactNode }) => {
+  
+  
   const [address, setAddress] = useState<IAddress>({
     zipCode: "",
     street: "",
