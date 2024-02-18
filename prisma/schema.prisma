@@ -39,8 +39,8 @@ model Order {
   userId    String
   products  Product[]
   date      DateTime
-  address   Address   @relation(fields: [addressId], references: [id])
-  addressId String    @unique
+  address   Address?  @relation(fields: [addressId], references: [id])
+  addressId String?   @unique
 }
 
 model Address {
