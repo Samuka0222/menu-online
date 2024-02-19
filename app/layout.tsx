@@ -6,6 +6,7 @@ import SelectedCategoryProvider from "./_providers/selected-category-provider";
 import { CartProvider } from "./_providers/cart-provider";
 import { Toaster } from "@/app/_components/ui/sonner";
 import AuthProvider from "./_providers/auth-provider";
+import { AddressProvider } from "./_providers/address-provider";
 
 const poppins = Poppins({ weight: ['100', "200", "300", "400", "500", "600", "700", "800", "900"], subsets: ['latin'] })
 
@@ -28,10 +29,12 @@ export default function RootLayout({
         <AuthProvider>
           <SelectedCategoryProvider>
             <CartProvider>
-              <main>
-                {children}
-                <Toaster position="top-right" richColors />
-              </main>
+              <AddressProvider>
+                <main>
+                  {children}
+                  <Toaster position="top-right" richColors />
+                </main>
+              </AddressProvider>
             </CartProvider>
           </SelectedCategoryProvider>
         </AuthProvider>
