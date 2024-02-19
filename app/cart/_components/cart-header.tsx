@@ -1,8 +1,9 @@
 'use client'
 
+import HomeButton from "@/app/_components/home-button";
 import { Button } from "@/app/_components/ui/button";
 import { cn } from "@/app/_lib/utils";
-import { ArrowBigLeftDashIcon } from "lucide-react";
+import { ArrowBigLeftDashIcon, ArrowBigLeftIcon } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 
 const CartHeader = () => {
@@ -31,10 +32,12 @@ const CartHeader = () => {
         </div>
       </div>
 
-      <Button variant='outline' size='lg' className="text-xl" onClick={handleBackClick}>
-          <ArrowBigLeftDashIcon className="mr-1" />
-          Voltar
-      </Button>
+      <div className="flex gap-4">
+        <HomeButton />
+        <Button variant='outline' size='icon' className="text-xl" onClick={handleBackClick}>
+          <ArrowBigLeftIcon size={30} />
+        </Button>
+      </div>
     </header>
   );
 }
