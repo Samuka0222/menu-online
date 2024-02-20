@@ -23,24 +23,32 @@ model User {
 }
 
 model Product {
-  id          String  @id @default(uuid())
+  id          String       @id @default(uuid())
   name        String
   imageUrl    String
   category    String
   description String
-  price       Decimal @db.Decimal(10, 2)
-  order       Order?  @relation(fields: [orderId], references: [id])
-  orderId     String?
+  price       Decimal      @db.Decimal(10, 2)
+  OrderItems  OrderItems[]
+}
+
+model OrderItems {
+  id        String  @id @default(uuid())
+  product   Product @relation(fields: [productId], references: [id])
+  productId String
+  quantity  Int
+  Order     Order[]
 }
 
 model Order {
-  id        String    @id @default(uuid())
-  user      User      @relation(fields: [userId], references: [id])
-  userId    String
-  products  Product[]
-  date      DateTime
-  address   Address?  @relation(fields: [addressId], references: [id])
-  addressId String?   @unique
+  id           String     @id @default(uuid())
+  user         User       @relation(fields: [userId], references: [id])
+  userId       String
+  orderItemsId String
+  orderItems   OrderItems @relation(fields: [orderItemsId], references: [id])
+  date         DateTime
+  address      Address?   @relation(fields: [addressId], references: [id])
+  addressId    String?    @unique
 }
 
 model Address {
