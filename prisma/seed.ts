@@ -493,7 +493,7 @@ const products = [
   },
   {
     "id": "steaks-and-cakes-date-night-dinner-for-2",
-    "img": "https://ibb.co/P1N8njD",
+    "img": "https://utfs.io/f/2e30f24e-6d8d-4d73-9e65-7ea9e44d9dce-7mn2tp.0c63dab635eed46209455dc33cd25ea8.jpg",
     "name": "Chesapeake Bay Gourmet",
     "category": "steaks",
     "dsc": "Steaks and Cakes Date Night Dinner for 2",
