@@ -14,8 +14,7 @@ const OrderResumePage = () => {
   const { cart } = cartContext
 
   return (
-    // TODO: Verificar layout quando tem muitos itens no carrinho.
-    <main className="px-5 w-full overflow-hidden">
+    <main className="px-5 w-full overflow-y-auto">
       <h1 className="text-2xl font-medium text-black mb-4">Resumo do pedido:</h1>
       <div>
         <h2 className="text-xl font-bold text-black mb-2">Itens do pedido:</h2>
@@ -33,7 +32,7 @@ const OrderResumePage = () => {
                   />
                 </div>
                 <div className="ml-2">
-                  <h3 className="font-semibold text-black text-xl w-[200px] text-ellipsis overflow-hidden text-nowrap">{product.item.name}</h3>
+                  <h3 className="font-semibold text-black text-xl w-[300px] text-ellipsis overflow-hidden text-nowrap">{product.item.name}</h3>
                   <h2 className="font-bold text-primary text-2xl">R$ {Number(product.item.price).toFixed(2).replace('.', ',')}</h2>
                 </div>
               </div>

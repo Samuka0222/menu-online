@@ -22,7 +22,6 @@ const SelectAddressPage = async () => {
   }
 
   return (
-    // TODO: Verificar layout quando tem muitos itens no carrinho.
     <main className="px-5 h-full w-full overflow-y-hidden flex flex-col justify-center">
       <h1 className="text-2xl font-medium text-black mb-2">Endereço de entrega:</h1>
       <div className="flex flex-col w-full px-2 overflow-y-auto mb-2">

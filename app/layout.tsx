@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={cn(poppins.className, 'min-h-screen bg-background font-sans antialiased')}>
+      <body className={cn(poppins.className, 'min-h-screen h-screen bg-background font-sans antialiased')}>
         <AuthProvider>
           <SelectedCategoryProvider>
             <CartProvider>

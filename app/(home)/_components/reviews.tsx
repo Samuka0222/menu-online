@@ -57,13 +57,7 @@ const Review = ({ review }: ReviewProps) => {
           <div className="flex flex-col gap-2">
             <h3 className="text-3xl font-bold text-black">{review.nome}</h3>
             <h4 className="flex">
-              {/* TODO: Fazer a lógica para mostrar as notas corretamente*/}
-              <StarIcon fill="#ffbf00" color="#ffbf00" />
-              <StarIcon fill="#ffbf00" color="#ffbf00" />
-              <StarIcon fill="#ffbf00" color="#ffbf00" />
-              <StarIcon fill="#ffbf00" color="#ffbf00" />
-              <StarHalfIcon fill="#ffbf00" color="#ffbf00" />
-              <p className="font-medium">4.5</p>
+              <p className="font-medium text-lg">Nota: {review.nota} | 5</p>
             </h4>
           </div>
         </div>

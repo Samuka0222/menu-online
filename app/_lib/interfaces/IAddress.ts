@@ -7,5 +7,5 @@ export default interface IAddress {
   state: string,
   complement?: string | null,
   id?: string | '',
-  favorite: boolean
+  favorite?: boolean
 }

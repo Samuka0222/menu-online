@@ -9,22 +9,24 @@ import HomeButton from "../_components/home-button";
 import Footer from "../_components/footer";
 import AddressCard from "../_components/address-card";
 import SaveAddressForm from "../_components/save-address-form";
+import LoginButton from "./_components/login-button";
 
 const AddressPage = async () => {
   const session = await getServerSession(authOptions)
-  const savedAddress = await db.address.findMany({
-    where: {
-      userId: (session?.user as any).id
-    },
-    orderBy: {
-      favorite: "desc"
-    }
-  })
+  const savedAddress = session?.user
+    ? await db.address.findMany({
+      where: {
+        userId: (session?.user as any).id
+      },
+      orderBy: {
+        favorite: "desc"
+      }
+    })
+    : undefined;
 
   return (
-    // TODO: Arrumar o layout da página.
-    <main className="flex flex-col items-center w-full h-full">
-      <header className="flex w-full justify-between items-center px-5 py-6">
+    <main className="flex flex-col items-center w-full h-screen">
+      <header className="flex w-full justify-between items-center px-5 pt-6 pb-0">
         <div>
           {
             session?.user
@@ -34,11 +36,10 @@ const AddressPage = async () => {
                 </div>
               </>
               : <>
-                {/* Colocar Alert para redirecionar o usuário para a página de Login */}
-                <div>
+                <div className="flex items-center gap-1">
                   <UserCircle size={30} />
+                  <h2 className="font-semibold text-black text-xl">Olá, usuário!</h2>
                 </div>
-                <h2 className="font-semibold text-black">Olá, usuário!</h2>
               </>
           }
         </div>
@@ -48,24 +49,32 @@ const AddressPage = async () => {
         </div>
       </header>
 
-      <section className="w-full flex flex-col flex-grow justify-center items-center mt-5 px-5 py-6">
-        <h1 className="w-full text-2xl font-bold text-black text-left">Endereços cadastrados:</h1>
-        <div className="mt-6 w-full flex flex-col gap-4">
-          {
-            savedAddress.map((address, index) => (
-              <AddressCard key={address.id} address={address} index={index} />
-            ))
-          }
-        </div>
-
-        <SaveAddressForm trigger={
-          <div className="flex flex-col px-3 py-3 justify-center items-center border-2 border-gray-500 rounded-xl mt-4 cursor-pointer">
-            <h2 className="font-medium">{
-              savedAddress.length > 0 ? 'Adicionar outro endereço' : 'Adicionar um endereço'
-            }</h2>
-            <PlusCircle />
-          </div>
-        } />
+      <section className="w-full h-full flex flex-col flex-1 justify-center items-center px-5">
+        {
+          savedAddress
+            ? <div className="mt-6 w-full h-full flex flex-col gap-4">
+              <h1 className="w-full text-2xl font-bold text-black text-left">Endereços cadastrados:</h1>
+              {
+                savedAddress.map((address, index) => (
+                  <AddressCard key={address.id} address={address} index={index} />
+                ))
+              }
+              <SaveAddressForm trigger={
+                <div className="flex flex-col px-3 py-3 justify-center items-center border-2 border-gray-500 rounded-xl mt-4 cursor-pointer">
+                  <h2 className="font-medium">
+                    {
+                      savedAddress.length > 0 ? 'Adicionar outro endereço' : 'Adicionar um endereço'
+                    }
+                  </h2>
+                  <PlusCircle />
+                </div>
+              } />
+            </div>
+            : <div className="flex flex-col gap-4 items-center justify-center">
+              <p className="text-lg text-black font-medium">Você precisa fazer o login para acessar seus endereços.</p>
+              <LoginButton />
+            </div>
+        }
       </section>
       <Footer />
     </main>

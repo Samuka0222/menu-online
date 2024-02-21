@@ -18,8 +18,9 @@ const AddCartButton = ({ product }: AddCartButtonProps) => {
     throw new Error("No context provided for AddCartButton")
   };
 
-  const { addProduct, removeProduct } = context;
+  const { cart, addProduct, removeProduct } = context;
   const [quantity, setQuantity] = useState(0);
+  const item = cart.find(item => item.item.id === product.id)
 
   const handleAddClick = () => {
     addProduct(product)
@@ -29,10 +30,9 @@ const AddCartButton = ({ product }: AddCartButtonProps) => {
 
   const handleRemoveClick = () => {
     removeProduct(product)
-    if (quantity <= 0) {
+    if (quantity < 1) {
       return
     }
-    setQuantity(quantity - 1)
     toast.error('Item removido do carrinho.')
   }
 
@@ -42,8 +42,7 @@ const AddCartButton = ({ product }: AddCartButtonProps) => {
         <PlusIcon />
       </Button>
       <span className="text-xl font-bold">
-        {/* TODO: mostrar quantidade de itens dentro do carrinho, invés de criar um novo estado */}
-        {quantity}
+        {item ? item.quantity : 0}
       </span>
       <Button size='icon' className="shadow-none rounded-full" onClick={handleRemoveClick}>
         <MinusIcon />

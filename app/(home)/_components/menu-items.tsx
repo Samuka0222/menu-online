@@ -28,7 +28,6 @@ const MenuItems = ({ products }: MenuItemsProps) => {
   const productsToBeRender = showMoreActive ? productsList : productsList.slice(0, 8)
 
   return (
-    // TODO: FIltrar os produtos para mostrar apenas 8 e adicionar o botão "ver mais"
     <div className="flex flex-col w-full items-center">
       <ul className="flex flex-col gap-3 w-full">
         {
@@ -70,22 +69,6 @@ const Item = ({ product }: ItemProps) => {
         </CardContent>
       </Card>
     </li>
-  )
-}
-
-const ItemSkeleton = () => {
-  return (
-    <div className="flex flex-col gap-3 w-full">
-      <div className="flex h-full p-3 gap-3 w-full items-center">
-        <div className="flex justify-center items-center h-full min-w-[100px]">
-          <Skeleton className="w-[100px] h-[100px] rounded-lg" />
-        </div>
-        <div className="h-full flex flex-col gap-1 flex-1 w-[100px]">
-          <Skeleton />
-          <Skeleton />
-        </div>
-      </div>
-    </div>
   )
 }
 

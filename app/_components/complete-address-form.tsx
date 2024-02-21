@@ -43,7 +43,6 @@ const formSchema = z.object({
 })
 
 const CompleteAddressForm = ({ closeDialog }: CompleteAddressFormProps) => {
-  // TODO: Quando carregar o form, puxar o ultimo endereço usado pelo usuário
   const context = useAddressContext();
 
   if (!context) {

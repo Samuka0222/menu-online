@@ -42,7 +42,7 @@ const CartFooter = () => {
           userId: (data?.user as any).id,
           orderId: null,
           id: address.id!,
-          favorite: address.favorite
+          favorite: !address.favorite
         },
         cart: cart,
         date: new Date(),
@@ -76,8 +76,8 @@ const CartFooter = () => {
   };
 
   return (
-    <div className="flex w-full flex-col justify-center items-end border-t-2 pt-4 px-5 py-6">
-      <span className="text-text text-xl font-medium">Subtotal: R$ {cartValue.toFixed(2).replace('.', ',')} </span>
+    <div className="flex w-full flex-col justify-center items-end border-t-2 px-5 pb-6">
+      <span className="text-text text-xl mt-2 font-medium">Subtotal: R$ {cartValue.toFixed(2).replace('.', ',')} </span>
       <span className="text-gray-400 text-lg font-medium flex"><Bike className="mr-2" /> Entrega + R$ 5,00 </span>
       <span className="flex text-2xl mt-1">
         <strong>Total: </strong>
