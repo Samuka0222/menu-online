@@ -1,13 +1,13 @@
 'use client'
 
 import AddCartButton from "@/app/_components/add-cart-button";
+import { Button } from "@/app/_components/ui/button";
 import { Card, CardContent, CardFooter } from "@/app/_components/ui/card";
 import { Skeleton } from "@/app/_components/ui/skeleton";
 import { SelectedCategoryContext } from "@/app/_providers/selected-category-provider";
 import { Product } from "@prisma/client";
-import { Divide } from "lucide-react";
 import Image from "next/image";
-import { Suspense, useContext } from "react";
+import { Suspense, useContext, useState } from "react";
 interface MenuItemsProps {
   products: Product[];
 }
@@ -23,21 +23,32 @@ const MenuItems = ({ products }: MenuItemsProps) => {
   }
   const { selectedCategory } = context;
 
+  const [showMoreActive, setShowMoreActive] = useState(false);
+  const productsList = products.filter(item => item.category === selectedCategory)
+  const productsToBeRender = showMoreActive ? productsList : productsList.slice(0, 8)
+
   return (
     // TODO: FIltrar os produtos para mostrar apenas 8 e adicionar o botão "ver mais"
-    <div className="flex flex-col gap-3 w-full">
-      {
-        products.map(product => (
-          product.category === selectedCategory && <Item key={product.id} product={product} />
-        ))
-      }
+    <div className="flex flex-col w-full items-center">
+      <ul className="flex flex-col gap-3 w-full">
+        {
+          productsToBeRender.map(product => (
+            product.category === selectedCategory && <Item key={product.id} product={product} />
+          ))
+        }
+      </ul>
+      <div>
+        <Button className="text-lg mt-4" onClick={() => setShowMoreActive(!showMoreActive)}>
+          {`${showMoreActive ? 'Ocultar' : 'Ver mais'}`}
+        </Button>
+      </div>
     </div>
   );
 }
 
 const Item = ({ product }: ItemProps) => {
   return (
-    <Suspense fallback={<ItemSkeleton />}>
+    <li>
       <Card className="flex items-center border-none shadow-default w-full">
         <CardContent className="flex h-full p-3 gap-3 w-full items-center">
           <div className="flex justify-center items-center h-full min-w-[100px]">
@@ -58,7 +69,7 @@ const Item = ({ product }: ItemProps) => {
           </CardFooter>
         </CardContent>
       </Card>
-    </Suspense>
+    </li>
   )
 }
 
