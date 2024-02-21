@@ -32,7 +32,7 @@ export default function RootLayout({
               <AddressProvider>
                 <main>
                   {children}
-                  <Toaster position="top-right" richColors />
+                  <Toaster position="top-right" richColors closeButton />
                 </main>
               </AddressProvider>
             </CartProvider>

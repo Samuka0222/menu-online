@@ -25,8 +25,8 @@ const OrderResumePage = () => {
               <div className="flex py-2 items-center">
                 <div>
                   <Image
-                    src='https://utfs.io/f/e7f87c77-e476-489e-add7-7087d11096dd-jeu9k0.63841de36d8e5edfafa13023fc303285.jpg'
-                    alt={product.item.name}
+                    src={product.item.imageUrl}
+                    alt={product.item.description}
                     width={70}
                     height={70}
                     className="rounded-xl"

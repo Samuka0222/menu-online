@@ -23,6 +23,7 @@ export default function useAddressContext() {
         city: savedAddress.city,
         state: savedAddress.state,
         complement: savedAddress.complement ? savedAddress.complement : '',
+        favorite: savedAddress.favorite
       })
     } else {
       setAddress({
@@ -33,6 +34,7 @@ export default function useAddressContext() {
         city: '',
         state: '',
         complement: '',
+        favorite: false
       })
     }
   }

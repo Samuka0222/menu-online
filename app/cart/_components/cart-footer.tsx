@@ -42,6 +42,7 @@ const CartFooter = () => {
           userId: (data?.user as any).id,
           orderId: null,
           id: address.id!,
+          favorite: address.favorite
         },
         cart: cart,
         date: new Date(),
