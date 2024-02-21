@@ -34,10 +34,10 @@ model Product {
 
 model OrderItems {
   id        String  @id @default(uuid())
-  product   Product @relation(fields: [productId], references: [id])
   productId String
+  product   Product @relation(fields: [productId], references: [id])
   quantity  Int
-  Order     Order   @relation(fields: [orderId], references: [id])
+  order     Order   @relation(fields: [orderId], references: [id])
   orderId   String
 }
 
