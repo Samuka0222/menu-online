@@ -37,18 +37,19 @@ model OrderItems {
   product   Product @relation(fields: [productId], references: [id])
   productId String
   quantity  Int
-  Order     Order[]
+  Order     Order   @relation(fields: [orderId], references: [id])
+  orderId   String
 }
 
 model Order {
-  id           String     @id @default(uuid())
-  user         User       @relation(fields: [userId], references: [id])
+  id           String       @id @default(uuid())
+  user         User         @relation(fields: [userId], references: [id])
   userId       String
   orderItemsId String
-  orderItems   OrderItems @relation(fields: [orderItemsId], references: [id])
+  orderItems   OrderItems[]
   date         DateTime
-  address      Address?   @relation(fields: [addressId], references: [id])
-  addressId    String?    @unique
+  address      Address?     @relation(fields: [addressId], references: [id])
+  addressId    String?      @unique
 }
 
 model Address {
