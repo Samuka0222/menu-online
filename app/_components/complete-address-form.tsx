@@ -6,11 +6,14 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/app/_components/ui/input";
 import { Button } from "@/app/_components/ui/button";
-import { useContext, useEffect } from "react";
-import { AddressContext } from "../../_providers/address-provider";
-import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import saveAddress from "@/app/cart/_actions/save-address";
+import { useSession } from "next-auth/react";
+import useAddressContext from "@/app/_lib/hooks/useAddressContext";
 
-
+interface CompleteAddressFormProps {
+  closeDialog: () => void
+}
 
 const formSchema = z.object({
   street: z.string({
@@ -39,16 +42,17 @@ const formSchema = z.object({
   complement: z.string(),
 })
 
-const AddressForm = () => {
-  const context = useContext(AddressContext);
+const CompleteAddressForm = ({ closeDialog }: CompleteAddressFormProps) => {
+  // TODO: Quando carregar o form, puxar o ultimo endereço usado pelo usuário
+  const context = useAddressContext();
 
   if (!context) {
-    throw new Error('Context not found!')
+    throw new Error("No context provided for ZipCodeForm")
   }
 
-  const { address, setAddress } = context;
+  const { address } = context;
 
-  const router = useRouter();
+  const { data } = useSession();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -56,24 +60,28 @@ const AddressForm = () => {
       street: address.street,
       neighborhood: address.neighborhood,
       number: address.number,
-      city:  address.city,
+      city: address.city,
       state: address.state,
       complement: '',
     }
   })
 
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
-    setAddress({
-      zipCode: address.zipCode,
-      street: values.street,
-      neighborhood: values.neighborhood,
-      number: values.number,
-      city: values.city,
-      state: values.state,
-      complement: values.complement,
-    })
-
-    router.push('order-resume')
+    try {
+      await saveAddress({
+        zipCode: address.zipCode,
+        street: values.street,
+        neighborhood: values.neighborhood,
+        number: values.number,
+        city: values.city,
+        state: values.state,
+        complement: values.complement,
+        userId: (data?.user as any).id
+      })
+      closeDialog()
+    } catch (err) {
+      alert('Erro ao cadastrar o endereço.')
+    }
   }
 
   useEffect(() => {
@@ -174,4 +182,4 @@ const AddressForm = () => {
   );
 }
 
-export default AddressForm;
+export default CompleteAddressForm;

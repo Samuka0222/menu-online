@@ -22,7 +22,6 @@ export const AddressProvider = ({ children }: { children: React.ReactNode }) => 
     city: "",
     state: "",
     complement: "",
-    id: ''
   });
 
   return (

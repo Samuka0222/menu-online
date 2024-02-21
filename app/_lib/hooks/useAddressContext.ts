@@ -16,7 +16,6 @@ export default function useAddressContext() {
 
     if (savedAddress !== null) {
       setAddress({
-        id: savedAddress.id,
         zipCode: savedAddress.zipCode,
         street: savedAddress.street,
         neighborhood: savedAddress.neighborhood,
@@ -34,7 +33,6 @@ export default function useAddressContext() {
         city: '',
         state: '',
         complement: '',
-        id: '',
       })
     }
   }
