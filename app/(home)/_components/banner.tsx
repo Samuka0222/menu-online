@@ -3,7 +3,9 @@
 import makeCall from "@/app/_actions/make-call";
 import SocialLinks from "@/app/_components/socials-links";
 import { Button } from "@/app/_components/ui/button";
+import formatContactNumber from "@/app/_helpers/format-contact-number";
 import { Phone } from "lucide-react";
+import restaurantConfig from "@/app/_lib/mocks/restaurant-config.json"
 
 const Banner = () => {
   const handleTelephoneClick = () => {
@@ -27,8 +29,7 @@ const Banner = () => {
       </div>
       <div className="mt-5">
         <Button size='lg' variant='outline' className="text-xl h-12 border-none rounded-full shadow-default" onClick={handleTelephoneClick}>
-          {/* TODO: Formatar o número do config para aparecer corretamente aqui. */}
-          (51) 9 9999-9999
+          {formatContactNumber(restaurantConfig.contact)}
           <span className="ml-2 p-2 bg-primary rounded-xl">
             <Phone fill="" stroke="none" />
           </span>
