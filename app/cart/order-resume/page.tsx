@@ -1,26 +1,17 @@
 'use client'
 
-import CartItem from "@/app/_components/cart-item";
 import useCartContext from "@/app/_lib/hooks/useCartContext";
-import { AddressContext } from "@/app/cart/_providers/address-provider";
-import { MapPinned } from "lucide-react";
 import Image from "next/image";
-import { useContext } from "react";
+import DeliveryAddress from "./_components/delivery-address";
 
 const OrderResumePage = () => {
   const cartContext = useCartContext();
-  const addressContext = useContext(AddressContext);
 
-  if (!cartContext || !addressContext) {
+  if (!cartContext) {
     throw new Error('Context not found!')
   }
 
   const { cart } = cartContext
-  const { address } = addressContext
-
-  const formatedZipCode = `
-    ${address.zipCode.slice(0, 5)}-${address.zipCode.slice(5)}
-  `
 
   return (
     // TODO: Verificar layout quando tem muitos itens no carrinho.
@@ -53,18 +44,13 @@ const OrderResumePage = () => {
             </div>
           ))
         }
-      </div>
-      <h2 className="text-xl font-bold text-black mt-4 mb-2">Local da Entrega:</h2>
-      <div className="flex items-center gap-4">
-        <div className="h-16 w-16 bg-[#FFF2CC] flex justify-center items-center rounded-xl">
-          <MapPinned size={35} />
-        </div>
+
         <div className="flex flex-col">
-          <span className="text-lg font-medium capitalize text-black">{address.street}, {address.number}, {address.neighborhood}</span>
-          <span className="text-lg font-medium capitalize text-black">{address.city} - {address.state} / {formatedZipCode}</span>
-          {address.complement !== '' ? <span className="text-lg font-medium capitalize text-black">{address.complement} </span> : ''}
+          <h2 className="text-xl font-bold text-black mt-4 mb-2">Local da Entrega:</h2>
+          <DeliveryAddress />
         </div>
       </div>
+
     </main>
   )
 }
