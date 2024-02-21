@@ -15,6 +15,9 @@ const AddressPage = async () => {
   const savedAddress = await db.address.findMany({
     where: {
       userId: (session?.user as any).id
+    },
+    orderBy: {
+      favorite: "desc"
     }
   })
 

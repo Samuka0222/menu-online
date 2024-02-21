@@ -11,7 +11,8 @@ interface SaveAddressParams {
   city: string,
   state: string,
   complement: string,
-  userId: string
+  userId: string,
+  favorite: boolean
 }
 
 export default async function saveAddress(params: SaveAddressParams) {
@@ -26,6 +27,7 @@ export default async function saveAddress(params: SaveAddressParams) {
         state: params.state,
         complement: params.complement,
         userId: params.userId,
+        favorite: params.favorite
       }
     });
 

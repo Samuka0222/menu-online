@@ -3,8 +3,10 @@
 import { Address } from "@prisma/client";
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
-import { TrashIcon } from "lucide-react";
+import { StarIcon, TrashIcon } from "lucide-react";
 import { deleteAddress } from "../_actions/delete-address";
+import setFavoriteAddress from "../_actions/set-favorite-address";
+import { toast } from "sonner";
 
 interface AddressCardProps {
   address: Address,
@@ -12,6 +14,15 @@ interface AddressCardProps {
 }
 
 const AddressCard = ({ address, index }: AddressCardProps) => {
+  const handleFavoriteClick = async () => {
+    try {
+      await setFavoriteAddress(address.id)
+    } catch (err) {
+      toast.error('Erro ao favoritar endereço, tente mais tarde.')
+      console.log(err)
+    }
+  }
+
   const handleDeleteClick = async () => {
     try {
       await deleteAddress(address.id)
@@ -19,16 +30,28 @@ const AddressCard = ({ address, index }: AddressCardProps) => {
       console.log(err)
     }
   }
-  
+
   return (
     <Card>
-      <CardHeader className="py-2 flex flex-row justify-between">
+      <CardHeader className="pt-2 pb-0 flex flex-row justify-between items-center">
         <CardTitle>
           <p className="text-xl font-medium">Endereço {index + 1}: </p>
         </CardTitle>
-        <Button variant='destructive' size='icon' onClick={handleDeleteClick}>
-          <TrashIcon />
-        </Button>
+        <div className="flex gap-2">
+          {
+            address.favorite
+              ? <Button variant='outline' size='icon'>
+                <StarIcon fill="rgb(255 191 0)" className="text-primary" />
+              </Button>
+
+              : <Button variant='outline' size='icon' onClick={handleFavoriteClick}>
+                <StarIcon className="text-black" />
+              </Button>
+          }
+          <Button variant='destructive' size='icon' onClick={handleDeleteClick}>
+            <TrashIcon />
+          </Button>
+        </div>
       </CardHeader>
       <CardContent className="pt-2 pb-3">
         <div>

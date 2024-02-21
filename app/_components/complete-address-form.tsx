@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/app/_components/ui/input";
 import { Button } from "@/app/_components/ui/button";
 import { useEffect } from "react";
-import saveAddress from "@/app/cart/_actions/save-address";
+import saveAddress from "@/app/_actions/save-address";
 import { useSession } from "next-auth/react";
 import useAddressContext from "@/app/_lib/hooks/useAddressContext";
 
@@ -76,7 +76,8 @@ const CompleteAddressForm = ({ closeDialog }: CompleteAddressFormProps) => {
         city: values.city,
         state: values.state,
         complement: values.complement,
-        userId: (data?.user as any).id
+        userId: (data?.user as any).id,
+        favorite: false
       })
       closeDialog()
     } catch (err) {
