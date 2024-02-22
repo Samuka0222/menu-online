@@ -2,15 +2,17 @@
 
 import { Button } from "@/app/_components/ui/button";
 import useCartContext from "@/app/_lib/hooks/useCartContext";
-import { Bike } from "lucide-react";
+import { Bike, Loader } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { redirect, usePathname, useRouter } from "next/navigation";
 import makeOrder from "../_actions/make-order";
 import { useSession } from "next-auth/react";
 import useAddressContext from "@/app/_lib/hooks/useAddressContext";
 import { toast } from "sonner";
 import restaurantConfig from "@/app/_lib/mocks/restaurant-config.json"
 import formatZipCode from "@/app/_helpers/format-zip-code";
+import { useState } from "react";
+import generateOrderMessage from "../_helpers/generate-order-message";
 
 const CartFooter = () => {
   const { data } = useSession();
@@ -21,15 +23,19 @@ const CartFooter = () => {
     throw new Error('Não foi possível encontrar o contexto.')
   }
 
-  const { cart, cartValue } = cartContext;
+  const { cart, cartValue, resetCart } = cartContext;
   const { address } = addressContext
 
   const pathname = usePathname();
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false)
+
   const handleOrderClick = async () => {
     try {
       if (cart.length === 0) {
         toast.error('Carrinho está vazio, não é possível fazer o pedido')
       }
+      setIsLoading(true)
       await makeOrder({
         address: {
           zipCode: address.zipCode,
@@ -49,29 +55,15 @@ const CartFooter = () => {
         userId: (data?.user as any).id
       })
 
-      let itemsFromCart = ''
-
-      cart.forEach((item) => {
-        itemsFromCart += `*${item.quantity}x* ${item.item.name} ........ R$ ${Number(item.item.price).toFixed(2).replace('.', ',')} \n`
-      })
-
-
-      const text = `
-      Olá! Gostaria de fazer um *pedido*:
-      \n*Itens do pedido:*
-      \n${itemsFromCart}
-      \n*Endereço de entrega:*
-      \n${address.street}, ${address.number}, ${address.neighborhood},\n${address.city} - ${address.state} / ${formatZipCode(address.zipCode)},\n${address.complement}.
-    `
-
+      const text = generateOrderMessage(cart, address);
       const encode = encodeURI(text);
-      const URL = `https://wa.me/${restaurantConfig.contact}?text=${encode}`
-
+      const URL = `https://wa.me/${restaurantConfig.contact}?text=${encode}`;
+      resetCart();
+      setIsLoading(false);
       window.open(URL, '_blank')
-
+      router.replace('/')
     } catch (error) {
-      alert('Não foi possível fazer o pedido')
-      console.error(error)
+      toast.error('Não foi possível fazer o pedido')
     }
   };
 
@@ -100,7 +92,16 @@ const CartFooter = () => {
         pathname === '/cart/order-resume' && (
           <div className="mt-4">
             <Button size='lg' className="text-lg rounded-xl" onClick={handleOrderClick}>
-              Fazer Pedido
+              {
+                isLoading
+                  ? <>
+                    <Loader className="animate-spin mr-2" />
+                    Fazer Pedido
+                  </>
+                  : <>
+                    Fazer Pedido
+                  </>
+              }
             </Button>
           </div>
         )

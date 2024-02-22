@@ -3,10 +3,11 @@
 import { Address } from "@prisma/client";
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
-import { StarIcon, TrashIcon } from "lucide-react";
+import { Loader, StarIcon, TrashIcon } from "lucide-react";
 import { deleteAddress } from "../_actions/delete-address";
 import setFavoriteAddress from "../_actions/set-favorite-address";
 import { toast } from "sonner";
+import { useState } from "react";
 
 interface AddressCardProps {
   address: Address,
@@ -14,20 +15,24 @@ interface AddressCardProps {
 }
 
 const AddressCard = ({ address, index }: AddressCardProps) => {
+  const [isLoading, setIsLoading] = useState(false)
+  
   const handleFavoriteClick = async () => {
     try {
       await setFavoriteAddress(address.id)
     } catch (err) {
       toast.error('Erro ao favoritar endereço, tente mais tarde.')
-      console.log(err)
     }
   }
 
   const handleDeleteClick = async () => {
     try {
+      setIsLoading(true)
       await deleteAddress(address.id)
     } catch (err) {
-      console.log(err)
+      toast.error('Erro ao deletar o endereço, tente mais tarde.')
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -49,7 +54,9 @@ const AddressCard = ({ address, index }: AddressCardProps) => {
               </Button>
           }
           <Button variant='destructive' size='icon' onClick={handleDeleteClick}>
-            <TrashIcon />
+            {
+              isLoading ? <Loader className="animate-spin" /> : <TrashIcon />
+            }
           </Button>
         </div>
       </CardHeader>

@@ -6,10 +6,12 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/app/_components/ui/input";
 import { Button } from "@/app/_components/ui/button";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import saveAddress from "@/app/_actions/save-address";
 import { useSession } from "next-auth/react";
 import useAddressContext from "@/app/_lib/hooks/useAddressContext";
+import { toast } from "sonner";
+import { Loader } from "lucide-react";
 
 interface CompleteAddressFormProps {
   closeDialog: () => void
@@ -49,9 +51,9 @@ const CompleteAddressForm = ({ closeDialog }: CompleteAddressFormProps) => {
     throw new Error("No context provided for ZipCodeForm")
   }
 
-  const { address } = context;
-
+  const { address, setAddress } = context;
   const { data } = useSession();
+  const [isLoading, setIsLoading] = useState(false)
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -67,6 +69,7 @@ const CompleteAddressForm = ({ closeDialog }: CompleteAddressFormProps) => {
 
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
+      setIsLoading(true)
       await saveAddress({
         zipCode: address.zipCode,
         street: values.street,
@@ -78,9 +81,20 @@ const CompleteAddressForm = ({ closeDialog }: CompleteAddressFormProps) => {
         userId: (data?.user as any).id,
         favorite: false
       })
+      setAddress({
+        zipCode: "",
+        street: "",
+        neighborhood: "",
+        number: "",
+        city: "",
+        state: "",
+        complement: "",
+        favorite: false
+      })
+      setIsLoading(false)
       closeDialog()
     } catch (err) {
-      alert('Erro ao cadastrar o endereço.')
+      toast.error('Erro ao cadastrar o endereço.')
     }
   }
 
@@ -175,7 +189,14 @@ const CompleteAddressForm = ({ closeDialog }: CompleteAddressFormProps) => {
         />
 
         <Button type="submit" className="w-full">
-          Enviar
+          {
+            isLoading
+              ? <>
+                <Loader className="animate-spin mr-1" />
+                Enviar
+              </>
+              : 'Enviar'
+          }
         </Button>
       </form>
     </Form>

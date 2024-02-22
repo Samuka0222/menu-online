@@ -67,6 +67,10 @@ export default function useCartContext() {
     }
   }
 
+  function resetCart() {
+    setCart([])
+  }
+
   useEffect(() => {
     setCartValue(
       cart.reduce((total, { item, quantity }) => {
@@ -83,6 +87,7 @@ export default function useCartContext() {
     cartValue,
     addProduct,
     removeProduct,
-    deleteProduct
+    deleteProduct,
+    resetCart
   }
 }
