@@ -6,6 +6,7 @@ import { Button } from "@/app/_components/ui/button";
 import formatContactNumber from "@/app/_helpers/format-contact-number";
 import { Phone } from "lucide-react";
 import restaurantConfig from "@/app/_lib/mocks/restaurant-config.json"
+import Link from "next/link";
 
 const Banner = () => {
   const handleTelephoneClick = () => {
@@ -23,8 +24,10 @@ const Banner = () => {
       </p>
 
       <div className="mt-5">
-        <Button size='lg' className="text-xl h-12 rounded-full shadow-default">
-          Ver cardápio
+        <Button size='lg' className="text-xl h-12 rounded-full shadow-default" asChild>
+          <Link href='#menu'>
+            Ver cardápio
+          </Link>
         </Button>
       </div>
       <div className="mt-5">

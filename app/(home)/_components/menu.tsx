@@ -7,12 +7,11 @@ const Menu = async () => {
   const { categories, menuProducts } = await getProducts();
 
   return (
-    <section className="mt-16 w-full">
+    <section id="menu" className="mt-16 w-full">
       <SectionTitle
         title="Cardápio"
         description="Conheça o nosso cardápio:"
       />
-
       <div>
         <Categories categories={categories}/>
       </div>
