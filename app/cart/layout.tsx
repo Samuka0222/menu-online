@@ -9,7 +9,8 @@ const CartLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-      <main className="h-screen w-full flex flex-col justify-between overflow-hidden">
+      <main className="h-screen w-full md:px-8 lg:px-40
+       flex flex-col justify-between overflow-hidden">
         <CartHeader />
         <div className="flex flex-1 w-full overflow-y-auto pb-2">
           {children}

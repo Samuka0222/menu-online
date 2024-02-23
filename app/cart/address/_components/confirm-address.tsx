@@ -55,27 +55,31 @@ const ConfirmAddress = ({ savedAddresses }: ConfirmAddressProps) => {
 
   return (
     <>
-      <div className="w-full flex flex-col gap-2 mt-3">
+      <div className="w-full flex flex-col gap-2 mt-2">
         <h3 className="font-medium text-base text-gray-600">CEP:</h3>
         <p className="border border-gray-300 rounded-lg px-3 py-2">{formatZipCode(savedAddresses[selectedAddress].zipCode)}</p>
       </div>
-      <div className="w-full flex flex-col gap-2 mt-3">
+      <div className="w-full flex flex-col gap-2 mt-2">
+        <h3 className="font-medium text-base text-gray-600">Rua:</h3>
+        <p className="border border-gray-300 rounded-lg px-3 py-2">{savedAddresses[selectedAddress].street}</p>
+      </div>
+      <div className="w-full flex flex-col gap-2 mt-2">
         <h3 className="font-medium text-base text-gray-600">Bairro:</h3>
         <p className="border border-gray-300 rounded-lg px-3 py-2">{savedAddresses[selectedAddress].neighborhood}</p>
       </div>
-      <div className="w-full flex flex-col gap-2 mt-3">
+      <div className="w-full flex flex-col gap-2 mt-2">
         <h3 className="font-medium text-base text-gray-600">Número:</h3>
         <p className="border border-gray-300 rounded-lg px-3 py-2">{savedAddresses[selectedAddress].number}</p>
       </div>
-      <div className="w-full flex flex-col gap-2 mt-3">
+      <div className="w-full flex flex-col gap-2 mt-2">
         <h3 className="font-medium text-base text-gray-600">Cidade:</h3>
         <p className="border border-gray-300 rounded-lg px-3 py-2">{savedAddresses[selectedAddress].city}</p>
       </div>
-      <div className="w-full flex flex-col gap-2 mt-3">
+      <div className="w-full flex flex-col gap-2 mt-2">
         <h3 className="font-medium text-base text-gray-600">UF:</h3>
         <p className="border border-gray-300 rounded-lg px-3 py-2">{savedAddresses[selectedAddress].state}</p>
       </div>
-      <div className="w-full flex flex-col gap-2 mt-3">
+      <div className="w-full flex flex-col gap-2 mt-2">
         <h3 className="font-medium text-base text-gray-600">Complemento:</h3>
         <p className="border border-gray-300 rounded-lg px-3 py-2">{
           savedAddresses[selectedAddress].complement
