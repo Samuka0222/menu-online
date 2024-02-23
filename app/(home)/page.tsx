@@ -9,16 +9,20 @@ import Footer from "../_components/footer";
 
 const HomePage = () => {
   return <>
-    <main className="flex flex-col relative">
-      <NavBar />
-      <section className="mt-12 flex flex-col justify-center items-center px-5">
-        <Banner />
-        <Services />
-        <Menu />
-        <Reviews />
-        <Reservation />
-      </section>
-      <CartButton />
+    <main className="flex flex-col relative w-full">
+      <div className="lg:px-44">
+        <div className="w-full flex justify-center">
+          <NavBar />
+        </div>
+        <section className="mt-12 flex flex-col justify-center items-center px-5">
+          <Banner />
+          <Services />
+          <Menu />
+          <Reviews />
+          <Reservation />
+        </section>
+        <CartButton />
+      </div >
       <Footer />
     </main>
   </>;

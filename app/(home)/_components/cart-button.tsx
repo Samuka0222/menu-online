@@ -18,9 +18,9 @@ const CartButton = () => {
   return (
     <div className={cn(
       cart.length > 0 ? 'block' : 'hidden',
-      "fixed z-10 bottom-4 right-4"
+      "fixed z-10 bottom-4 right-4 lg:right-14"
     )}>
-      <Button className="p-0 h-[50px] w-[50px] rounded-full bg-primary" asChild>
+      <Button className="p-0 h-[50px] w-[50px] rounded-full bg-primary shadow-default" asChild>
         <Link href='/cart/your-cart' className="relative">
           <CartIndicator />
           <ShoppingCart size={30} />

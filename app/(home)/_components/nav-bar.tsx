@@ -1,20 +1,11 @@
-'use client'
-
 import Image from "next/image";
-import { Button } from "@/app/_components/ui/button"
-import { LogInIcon, MapPinIcon, MenuIcon, PhoneCallIcon, ShoppingBagIcon, UserCircle } from "lucide-react";
-import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/app/_components/ui/sheet";
-import Link from "next/link";
-import CartIndicator from "@/app/_components/cart-indicator";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { Avatar, AvatarImage } from "@/app/_components/ui/avatar";
-import makeReservation from "@/app/_actions/make-reservation";
 import SideMenu from "@/app/_components/side-menu";
+import Link from "next/link";
 
 const NavBar = () => {
 
   return (
-    <nav className="pl-2 pr-6 flex justify-between items-center">
+    <nav className="pl-2 pr-6 flex w-full justify-between items-center lg:w-[70%]">
       <div>
         <Image
           src="/img/logo.png"
@@ -22,6 +13,20 @@ const NavBar = () => {
           width={160}
           height={160}
         />
+      </div>
+      <div className="hidden md:flex md:w-full md:justify-around">
+        <Link href='#services' className="font-bold text-lg">
+          Serviços
+        </Link>
+        <Link href='#menu' className="font-bold text-lg">
+          Cardápio
+        </Link>
+        <Link href='#reviews' className="font-bold text-lg">
+          Depoimentos
+        </Link>
+        <Link href='#reservation' className="font-bold text-lg">
+          Reserva
+        </Link>
       </div>
       <div>
         <SideMenu />

@@ -29,11 +29,12 @@ const AddCartButton = ({ product }: AddCartButtonProps) => {
   }
 
   const handleRemoveClick = () => {
-    removeProduct(product)
     if (quantity < 1) {
       return
+    } else {
+      removeProduct(product)
+      toast.error('Item removido do carrinho.')
     }
-    toast.error('Item removido do carrinho.')
   }
 
   return (

@@ -39,7 +39,7 @@ const Categories = ({ categories }: CategoriesProps) => {
   }
 
   return (
-    <nav className="flex gap-2 w-full overflow-x-auto py-3 [&::-webkit-scrollbar]:hidden">
+    <nav className="flex gap-2 w-full overflow-x-auto py-3 [&::-webkit-scrollbar]:hidden lg:justify-center lg:gap-5">
       {
         categories.map(category => (
           <Button

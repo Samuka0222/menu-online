@@ -12,11 +12,11 @@ const Menu = async () => {
         title="Cardápio"
         description="Conheça o nosso cardápio:"
       />
-      <div>
+      <div className="w-full">
         <Categories categories={categories}/>
       </div>
 
-      <div>
+      <div className="mt-8">
         <MenuItems products={menuProducts} />
       </div>
     </section>
