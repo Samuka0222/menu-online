@@ -37,7 +37,7 @@ const AddressCard = ({ address, index }: AddressCardProps) => {
   }
 
   return (
-    <Card>
+    <Card className="w-full md:w-[80%] lg:w-[500px]">
       <CardHeader className="pt-2 pb-0 flex flex-row justify-between items-center">
         <CardTitle>
           <p className="text-xl font-medium">Endereço {index + 1}: </p>

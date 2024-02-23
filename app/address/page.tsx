@@ -25,8 +25,8 @@ const AddressPage = async () => {
     : undefined;
 
   return (
-    <main className="flex flex-col items-center w-full h-screen">
-      <header className="flex w-full justify-between items-center px-5 pt-6 pb-0">
+    <main className="flex flex-col items-center w-full h-screen overflow-y-auto">
+      <header className="flex w-full justify-between items-center px-5 pt-6 pb-0 lg:px-20">
         <div>
           {
             session?.user
@@ -49,18 +49,18 @@ const AddressPage = async () => {
         </div>
       </header>
 
-      <section className="w-full h-full flex flex-col flex-1 justify-center items-center px-5">
+      <section className="w-full flex flex-col flex-1 justify-center items-center px-5">
         {
           savedAddress
-            ? <div className="mt-6 w-full h-full flex flex-col gap-4">
-              <h1 className="w-full text-2xl font-bold text-black text-left">Endereços cadastrados:</h1>
+            ? <div className="mt-6 w-full h-full flex flex-col gap-4 justify-center items-center lg:flex-row lg:flex-wrap">
+              <h1 className="w-full text-2xl font-bold text-black text-center">Endereços cadastrados:</h1>
               {
                 savedAddress.map((address, index) => (
                   <AddressCard key={address.id} address={address} index={index} />
                 ))
               }
               <SaveAddressForm trigger={
-                <div className="flex flex-col px-3 py-3 justify-center items-center border-2 border-gray-500 rounded-xl mt-4 cursor-pointer">
+                <div className="flex flex-col px-3 py-3 justify-center items-center border-2 border-gray-500 rounded-xl mt-4 lg:mt-0 cursor-pointer lg:h-[240px]">
                   <h2 className="font-medium">
                     {
                       savedAddress.length > 0 ? 'Adicionar outro endereço' : 'Adicionar um endereço'
