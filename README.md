@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cardapio Online com integração ao Whatsapp
 
-## Getting Started
+Esse projeto é uma reconstrução do projeto do curso: "Curso de HTML, CSS e Javascript: Construindo um cardápio online com integração ao whatsapp".
+Eu já havia recriado esse projeto utilizando React, porém estou dando um mais um passo na minha carreira e estou aprendendo a utilizar o Next.JS e estou bem satisfeito com meu resultado, diferente da versão feita com React, consegui reproduzir as minhas ideias e criar uma aplicação mais robusta.
+Também foi a primeira vez que lidei com banco de dados, confesso que foi difícil no começo, mas acredito que me adaptei bem!
 
-First, run the development server:
+## Tecnologias
+- Next.JS 14
+- Tailwind CSS.
+- Shadcn UI
+- Lucide Icons
+- Prisma
+- PostgreSQL
+- Supabase
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Funcionalidade
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Como eu não tenho um celular de testes para deixar lá fixo na aplicação, para testar 100% das funcionalidades, recomendo você fazer o download ou clone da aplicação, acessar o "app/_lib/mocks/restaurant-config.json" e inserir seu número na parte de contato, assim poderá testar a integração com Whatsapp.
+Fora isso, o resto é bem intuitivo e planejei a UI para também deixar informações para auxiliar, além de ter dado atenção para o tratamento de erros para evitar que quem testasse ficasse preso.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Futuras Melhorias
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Criar um CMS para controlar os produtos, informações do restaurante, gerenciar os pedidos.
+- Adicionar animações com o Animate.css e React Intersection Observer.
+- Otimizar os loadings.
 
-## Learn More
+### Sinta-se livre para deixar seu feedback e sugestões!
 
-To learn more about Next.js, take a look at the following resources:
+_____________________________________________________________________
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# English version.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Online Menu with WhatsApp Integration
 
-## Deploy on Vercel
+This project is a reconstruction of the course project: "HTML, CSS, and JavaScript Course: Building an online menu with WhatsApp integration." I had already recreated this project using React, but I'm taking another step in my career and learning to use Next.js. I'm quite satisfied with my results; unlike the React version, I was able to replicate my ideas and create a more robust application. It was also my first time dealing with a database. I confess it was challenging at first, but I believe I adapted well!
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Technologies
+- Next.JS 14
+- Tailwind CSS.
+- Shadcn UI
+- Lucide Icons
+- Prisma
+- PostgreSQL
+- Supabase
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Functionality
+Since I don't have a test phone to keep fixed in the application, to test 100% of the functionalities, I recommend downloading or cloning the application, accessing "app/_lib/mocks/restaurant-config.json" and inserting your number in the contact section. This way, you can test the integration with WhatsApp. Besides that, the rest is quite intuitive, and I planned the UI to provide information to assist users. I also paid attention to error handling to prevent testers from getting stuck.
+
+## Future Improvements
+- Add a CMS to control the products, restaurant's information, manage the orders.
+- Add animations to the elements with Animate.css and React Intersection Observer.
+- Optimize the loadings.
+
+### Feel free to leave your feedback and suggestions!
