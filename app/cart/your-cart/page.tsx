@@ -1,4 +1,9 @@
+import { Metadata } from "next";
 import UserCart from "../_components/user-cart";
+
+export const metadata: Metadata = {
+  title: 'Seu carrinho'
+}
 
 const CartPage = () => {
   return (

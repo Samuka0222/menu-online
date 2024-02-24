@@ -10,6 +10,12 @@ import Footer from "../_components/footer";
 import AddressCard from "../_components/address-card";
 import SaveAddressForm from "../_components/save-address-form";
 import LoginButton from "./_components/login-button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Endereços',
+  description: 'Lista de endereços cadastrados no Menu On-Line'
+}
 
 const AddressPage = async () => {
   const session = await getServerSession(authOptions)

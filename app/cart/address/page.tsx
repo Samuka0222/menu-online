@@ -4,6 +4,11 @@ import { db } from "@/app/_lib/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/_lib/auth";
 import ConfirmAddress from "./_components/confirm-address";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Confirme seu endereço'
+}
 
 const SelectAddressPage = async () => {
   const session = await getServerSession(authOptions);
