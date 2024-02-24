@@ -1,6 +1,7 @@
 'use client'
 
 import { Metadata } from "next";
+import { Metadata } from "next";
 import CartFooter from "./_components/cart-footer";
 import CartHeader from "./_components/cart-header";
 

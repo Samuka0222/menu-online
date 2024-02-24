@@ -3,6 +3,11 @@
 import useCartContext from "@/app/_lib/hooks/useCartContext";
 import Image from "next/image";
 import DeliveryAddress from "./_components/delivery-address";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Resumo do pedido'
+}
 
 const OrderResumePage = () => {
   const cartContext = useCartContext();
