@@ -1,14 +1,7 @@
 'use client'
 
-import { Metadata } from "next";
-import { Metadata } from "next";
 import CartFooter from "./_components/cart-footer";
 import CartHeader from "./_components/cart-header";
-
-export const metadata: Metadata = {
-  title: "Carrinho",
-  description: "Acompanhe seu carrinho para efetuar o pedido.",
-}
 
 const CartLayout = ({
   children,
