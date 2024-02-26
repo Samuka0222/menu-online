@@ -2,6 +2,7 @@
 
 import { db } from "@/app/_lib/prisma";
 import { revalidatePath } from "next/cache";
+import { toast } from "sonner";
 
 interface SaveAddressParams {
   zipCode: string,
@@ -35,6 +36,6 @@ export default async function saveAddress(params: SaveAddressParams) {
     revalidatePath('/cart')
     revalidatePath('/cart/address')
   } catch (err) {
-    console.log(err)
+    toast.error('Não foi possível salvar o endereço, tente mais tarde.')
   }
 }

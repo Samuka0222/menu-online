@@ -598,7 +598,6 @@ const seed = async () => {
         }
       });
     }
-    console.log('Seed completed successfully!');
   } catch (error) {
     console.error('Error during seed:', error);
   } finally {

@@ -10,7 +10,7 @@ import Footer from "../_components/footer";
 const HomePage = () => {
   return <>
     <main className="flex flex-col relative w-full">
-      <div className="lg:px-44">
+      <div className="lg:px-[18%]">
         <div className="w-full flex justify-center">
           <NavBar />
         </div>

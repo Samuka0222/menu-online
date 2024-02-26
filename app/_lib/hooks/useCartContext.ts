@@ -77,8 +77,6 @@ export default function useCartContext() {
         return total + Number(item.price) * quantity;
       }, 0)
     );
-
-    console.log(cart)
   }, [cart])
   
 

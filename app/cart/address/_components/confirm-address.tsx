@@ -7,7 +7,7 @@ import useAddressContext from "@/app/_lib/hooks/useAddressContext";
 import { Address } from "@prisma/client";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface ConfirmAddressProps {
   savedAddresses: Address[]
@@ -46,12 +46,6 @@ const ConfirmAddress = ({ savedAddresses }: ConfirmAddressProps) => {
     })
     router.push('/cart/order-resume')
   }
-
-  useEffect(() => {
-    console.log(savedAddresses.length)
-    console.log(selectedAddress)
-    console.log(savedAddresses[selectedAddress])
-  }, [savedAddresses, selectedAddress])
 
   return (
     <>

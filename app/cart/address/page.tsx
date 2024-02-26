@@ -4,6 +4,7 @@ import { db } from "@/app/_lib/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/_lib/auth";
 import ConfirmAddress from "./_components/confirm-address";
+import Head from "next/head";
 
 const SelectAddressPage = async () => {
   const session = await getServerSession(authOptions);
@@ -22,15 +23,21 @@ const SelectAddressPage = async () => {
   }
 
   return (
-    <main className="px-5 h-full w-full overflow-y-hidden flex flex-col justify-center">
-      <h1 className="text-2xl font-medium text-black mb-2">Endereço de entrega:</h1>
-      <div className="flex flex-col w-full px-2 overflow-y-auto mb-2">
-        <h2>Confirme o endereço de entrega:</h2>
-        <section>
-          <ConfirmAddress savedAddresses={savedAddresses} />
-        </section>
-      </div>
-    </main>
+    <>
+      <Head>
+        <title>Endereço de entrega</title>
+        <meta name="description" content="Página de confirmação do endereço de entrega." />
+      </Head>
+      <main className="px-5 h-full w-full overflow-y-hidden flex flex-col justify-center">
+        <h1 className="text-2xl font-medium text-black mb-2">Endereço de entrega:</h1>
+        <div className="flex flex-col w-full px-2 overflow-y-auto mb-2">
+          <h2>Confirme o endereço de entrega:</h2>
+          <section>
+            <ConfirmAddress savedAddresses={savedAddresses} />
+          </section>
+        </div>
+      </main>
+    </>
   );
 }
 

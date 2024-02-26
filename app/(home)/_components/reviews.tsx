@@ -31,7 +31,6 @@ const Reviews = () => {
             alt="imagem de uma pizza"
           />
         </div>
-        <div className="bg-[#FFF2CC] w-[520px] absolute h-[380px] rounded-3xl -z-10"></div>
       </div>
       <div className="w-full lg:2/4">
         <SectionTitle

@@ -16,7 +16,7 @@ const Banner = () => {
 
   return (
     <section className="w-full flex flex-col justify-center items-center lg:flex-row">
-      <div className="w-full flex flex-col justify-center items-center lg:w-2/4 lg:items-start">
+      <div className="w-full flex flex-col justify-center items-center lg:w-2/4 lg:items-start pr-4">
         <h1 className="font-bold text-4xl md:text-5xl text-center text-black lg:text-left lg:text-7xl lg:font-medium w-[90%]">
           Escolha a sua comida <strong className="text-primary">favorita</strong>.
         </h1>
@@ -24,7 +24,7 @@ const Banner = () => {
           Aproveite nosso cardápio! Escolha o que desejar e receber em sua casa de forma rápida e segura.
         </p>
 
-        <div className="flex flex-col w-full lg:gap-4 justify-center items-center lg:flex-row">
+        <div className="flex flex-col w-full justify-center items-center lg:items-start">
           <div className="mt-5">
             <Button size='lg' className="text-xl h-12 rounded-full shadow-default" asChild>
               <Link href='#menu'>
@@ -42,21 +42,20 @@ const Banner = () => {
           </div>
         </div>
 
-        <div className="w-full">
+        <div>
           <SocialLinks />
         </div>
       </div>
 
       <div className="hidden relative lg:flex w-2/4">
-        <div className="w-full flex justify-center">
+        <div className="flex items-center justify-center">
           <Image
-            src='/img/burguer.png'
+            src='/img/burguer-com-fundo.png'
             width={600}
             height={600}
             alt="Imagem de um hamburguer"
           />
         </div>
-        <div className="bg-primary w-[520px] absolute h-[520px] rounded-full -z-10 right-[80px] -top-10"></div>
       </div>
     </section>
   );
