@@ -1,7 +1,7 @@
 'use client'
 
 import { Avatar, AvatarImage } from "./ui/avatar";
-import { MenuIcon, UserCircle, LogInIcon, PhoneCallIcon, MapPinIcon, ShoppingBagIcon } from "lucide-react";
+import { MenuIcon, UserCircle, LogInIcon, PhoneCallIcon, MapPinIcon, ShoppingBagIcon, UserCog2 } from "lucide-react";
 import CartIndicator from "./cart-indicator";
 import { Button } from "./ui/button";
 import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetFooter } from "./ui/sheet";
@@ -92,6 +92,14 @@ const SideMenu = () => {
                 <CartIndicator />
                 <ShoppingBagIcon className="mr-2" />
                 Carrinho
+              </Link>
+            </Button>
+
+            <Button variant='outline' className="w-full justify-start font-bold relative" asChild>
+              <Link href='/admin/dashboard'>
+                <CartIndicator />
+                <UserCog2 className="mr-2" />
+                Administração
               </Link>
             </Button>
           </div>
