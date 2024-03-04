@@ -1,9 +1,15 @@
+'use server'
+
 import { Card, CardHeader, CardContent } from "@/app/_components/ui/card";
 import { ShoppingBagIcon } from "lucide-react";
 import { Suspense } from "react";
 import CardSkeleton from "../../_components/skeleton/card-skeleton";
+import { db } from "@/app/_lib/prisma";
 
-const OrderCard = () => {
+
+const OrderCard = async () => {
+  const totalOrders = await db.order.findMany();
+
   return (
     <Suspense fallback={<CardSkeleton />}>
       <Card>
@@ -13,7 +19,7 @@ const OrderCard = () => {
         </CardHeader>
         <CardContent className="flex flex-col">
           <span className="text-3xl">
-            145
+            {totalOrders.length}
           </span>
           <span className="mt-1 text-gray-500">
             +10% desde o mês passado.
