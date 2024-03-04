@@ -1,0 +1,17 @@
+import { Skeleton } from "@/app/_components/ui/skeleton";
+
+const CardSkeleton = () => {
+  return ( 
+    <div>
+      <div className="h-16 w-16 flex justify-center items-center ">
+        <Skeleton className="h-16 w-16 rounded-xl" />
+      </div>
+      <div className="flex flex-col">
+        <Skeleton className="h-10 w-20" />
+        <Skeleton className="h-10 w-20" />
+      </div>
+    </div>
+   );
+}
+
+export default CardSkeleton;
