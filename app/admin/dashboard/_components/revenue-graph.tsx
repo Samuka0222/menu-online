@@ -16,6 +16,7 @@ const RevenueGraph = () => {
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  // TODO: Corrigir o gráfico e colocar informações corretas
   useEffect(() => {
     const ctx = canvasRef.current?.getContext('2d')
     if (ctx) {
