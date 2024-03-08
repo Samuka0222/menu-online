@@ -10,7 +10,7 @@ import {
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
-  VisibilityState
+  VisibilityState,
 } from '@tanstack/react-table';
 
 import {
@@ -30,7 +30,7 @@ import {
 } from '@/app/_components/ui/dropdown-menu'
 
 import { Button } from '@/app/_components/ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowDown, ArrowUp, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 import { Input } from '@/app/_components/ui/input';
 
@@ -47,6 +47,9 @@ export function DataTable<TData, TValue>({
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = useState({})
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [globalFilter, setGlobalFilter] = useState('')
+
 
   const table = useReactTable({
     data,
@@ -59,27 +62,59 @@ export function DataTable<TData, TValue>({
     getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
+    onGlobalFilterChange: setGlobalFilter,
     state: {
       sorting,
       columnFilters,
       columnVisibility,
-      rowSelection
+      rowSelection,
+      globalFilter
     }
   })
 
+  const getColumnName = (id: string) => {
+    switch (id) {
+      case 'name':
+        return 'nome';
+      case 'price':
+        return 'preço';
+      case 'category':
+        return 'categoria';
+      case 'description':
+        return 'descrição';
+      case 'imageUrl':
+        return 'imagem';
+      case 'actions':
+        return 'ações';
+      default:
+        return id;
+    }
+  }
+
   return (
     <>
-      <div className='w-full flex gap-2 mt-2'>
-        <Input
+      <div className='w-full flex justify-center items-center gap-2 mt-2'>
+      <Input
+          value={globalFilter ?? ''}
+          onChange={event => setGlobalFilter(String(event.target.value))}
+          className="max-w-sm p-2 font-lg shadow border border-block "
+          placeholder="Filtrar..."
+        />
+        {/* <Input
           placeholder='Filtrar categoria'
           value={(table.getColumn('category')?.getFilterValue() as string) ?? ''}
           onChange={(event) => table.getColumn('category')?.setFilterValue(event.target.value)}
           className="max-w-sm"
-        />
-        <DropdownMenu>
+        /> */}
+        <DropdownMenu onOpenChange={() => setDropdownOpen(!dropdownOpen)}>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
+            <Button variant="outline">
               Colunas
+              {
+                !dropdownOpen
+                  ? <ArrowDown className='ml-2' size={20} />
+                  : <ArrowUp className='ml-2' size={20} />
+              }
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
@@ -98,7 +133,7 @@ export function DataTable<TData, TValue>({
                       column.toggleVisibility(!!value)
                     }
                   >
-                    {column.id}
+                    {getColumnName(column.id)}
                   </DropdownMenuCheckboxItem>
                 )
               })}
@@ -112,7 +147,7 @@ export function DataTable<TData, TValue>({
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead className='border text-center p-0' align='center' key={header.id}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -133,7 +168,7 @@ export function DataTable<TData, TValue>({
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell key={cell.id} align='center' className='border'>
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}
