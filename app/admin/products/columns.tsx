@@ -14,8 +14,8 @@ import { Button } from '@/app/_components/ui/button';
 import { ArrowUpDown, MoreHorizontal } from 'lucide-react';
 import { Checkbox } from '@/app/_components/ui/checkbox';
 import Image from 'next/image';
+import Link from 'next/link';
 
-// Traduzir os IDs para português
 export const columns: ColumnDef<Product>[] = [
   {
     id: 'select',
@@ -116,8 +116,8 @@ export const columns: ColumnDef<Product>[] = [
               {/* TODO: Adicionar as funções que eu quero */}
               Ver Produto
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              Editar
+            <DropdownMenuItem asChild>
+              <Link href={`/admin/products/edit/${product.id}`}>Editar</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
