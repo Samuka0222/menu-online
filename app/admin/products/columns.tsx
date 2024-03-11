@@ -15,6 +15,7 @@ import { ArrowUpDown, MoreHorizontal } from 'lucide-react';
 import { Checkbox } from '@/app/_components/ui/checkbox';
 import Image from 'next/image';
 import Link from 'next/link';
+import deleteProduct from '../_actions/delete-product';
 
 export const columns: ColumnDef<Product>[] = [
   {
@@ -119,6 +120,7 @@ export const columns: ColumnDef<Product>[] = [
             <DropdownMenuItem asChild>
               <Link href={`/admin/products/edit/${product.id}`}>Editar</Link>
             </DropdownMenuItem>
+            <DropdownMenuItem className='text-red-600 font-medium' onClick={() => deleteProduct(product.id)}>Deletar</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       )
