@@ -2,29 +2,42 @@
 
 import Image from "next/image";
 import { UploadButton } from "../_utils/uploadthing";
-import { useState } from "react";
-import { Button } from "@/app/_components/ui/button";
-import { Dialog, DialogTrigger, DialogContent, DialogTitle } from "@/app/_components/ui/dialog";
+import { ImageIcon } from "lucide-react";
+import { Suspense, useEffect } from "react";
+import { toast } from "sonner";
 
 interface ImageFormProps {
-  imageUrl: string;
-  description: string;
+  imageUrl?: string;
+  description?: string;
   updateImage: (imageUrl: string) => void;
 }
 
 const ImageForm = ({ imageUrl, description, updateImage }: ImageFormProps) => {
 
+  useEffect(() => {
+    if (imageUrl) {
+      updateImage(imageUrl);
+    }
+  }, [imageUrl, updateImage])
+
   return (
     <div className="w-full flex flex-col">
       <h3 className="text-sm font-medium">Imagem:</h3>
       <div className="flex gap-2 items-center mt-2">
-        <Image
-          src={imageUrl}
-          alt={description}
-          height={130}
-          width={130}
-          className="rounded-xl"
-        />
+        <Suspense fallback={<NoImageFound />}>
+          {
+            imageUrl !== ''
+              ? <Image
+                src={imageUrl ? imageUrl : ''}
+                alt={description ? description : ''}
+                height={130}
+                width={130}
+                className="rounded-xl"
+              />
+              : <NoImageFound />
+          }
+
+        </Suspense>
         <UploadButton
           endpoint="imageUploader"
           appearance={{
@@ -34,11 +47,11 @@ const ImageForm = ({ imageUrl, description, updateImage }: ImageFormProps) => {
                 width: 'fit',
                 fontWeight: "bold",
                 border: "none",
-                cursor: ready? "pointer" : "not-allowed",
+                cursor: ready ? "pointer" : "not-allowed",
                 color: "black",
                 backgroundColor: '#ffbf00',
                 ...(ready && { color: "#ecfdf5" }),
-                ...(isUploading && { color: "#d1d5db", backgroundColor: '#ffbf00'}),
+                ...(isUploading && { color: "#d1d5db", backgroundColor: '#ffbf00' }),
               };
             },
             container: {
@@ -50,8 +63,10 @@ const ImageForm = ({ imageUrl, description, updateImage }: ImageFormProps) => {
           }}
           content={{
             button({ ready }) {
-              if (ready) return <div>Nova imagem</div>;
-         
+              if (ready) return <div>
+                {imageUrl ? 'Nova Imagem' : 'Adicionar'}
+              </div>;
+
               return "Carregando...";
             },
             allowedContent({ ready, fileTypes, isUploading }) {
@@ -62,8 +77,7 @@ const ImageForm = ({ imageUrl, description, updateImage }: ImageFormProps) => {
           }}
           onClientUploadComplete={(res) => {
             updateImage(res[0].url)
-            console.log('Files: ', res);
-            alert('Upload completo');
+            toast.success('Upload completo');
           }}
           onUploadError={(error: Error) => {
             console.log('Error: ', error);
@@ -80,3 +94,11 @@ const ImageForm = ({ imageUrl, description, updateImage }: ImageFormProps) => {
 }
 
 export default ImageForm;
+
+const NoImageFound = () => {
+  return (
+    <div className="bg-gray-300 p-4 rounded-xl">
+      <ImageIcon size={30} />
+    </div>
+  )
+}

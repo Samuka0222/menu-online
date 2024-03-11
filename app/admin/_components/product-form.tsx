@@ -11,11 +11,13 @@ import { toast } from "sonner";
 import { Loader } from "lucide-react";
 import { Product } from "@prisma/client";
 import ImageForm from "./image-form";
-import updateProduct from "../_actions/update-product";
 import { useRouter } from "next/navigation";
+import updateProduct from "../_actions/update-product";
+import createProduct from "../_actions/create-product";
 
 interface EditProductFormProps {
-  product: Product;
+  product?: Product;
+  type?: 'update' | 'create'
 }
 
 const formSchema = z.object({
@@ -37,37 +39,42 @@ const formSchema = z.object({
   })
 })
 
-const EditProductForm = ({ product }: EditProductFormProps) => {
+const ProductForm = ({ product, type = 'update' }: EditProductFormProps) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const [imgUrl, setImgUrl] = useState(product.imageUrl);
+  const [imgUrl, setImgUrl] = useState(product ? product.imageUrl : '');
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: product.name,
-      price: String(product.price),
-      description: product.description,
-      category: product.category,
+      name: product ? product.name : '',
+      price: product ? String(product.price) : '',
+      description: product ? product.description : '',
+      category: product ? product.category : '',
     }
   })
 
   const uploadNewImg = (imageUrl: string) => {
     setImgUrl(imageUrl);
   }
-  
+
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setIsLoading(true);
       const newProduct = {
-        id: product.id,
+        id: product ? product.id : '',
         name: values.name,
         price: values.price,
         description: values.description,
         category: values.category,
         imageUrl: imgUrl,
       };
-      await updateProduct(newProduct);
+      if (type === 'update') {
+        await updateProduct(newProduct);
+      }
+      if (type === 'create') {
+        await createProduct(newProduct);
+      }
       setIsLoading(false);
       router.replace('/admin/products');
     } catch (err) {
@@ -112,7 +119,7 @@ const EditProductForm = ({ product }: EditProductFormProps) => {
             <FormItem className="w-full">
               <FormLabel>Descrição:</FormLabel>
               <FormControl>
-                <Input placeholder="Insira a descrição" type="string" {...field} />
+                <Input placeholder="Insira a descrição." type="string" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -125,12 +132,7 @@ const EditProductForm = ({ product }: EditProductFormProps) => {
             <FormItem className="w-full">
               <FormLabel>Categoria:</FormLabel>
               <FormControl>
-                <Input
-                  placeholder="Insira a categoria."
-                  type="string"
-                  {...field}
-                  className="capitalize"
-                />
+                <Input placeholder="Insira a categoria." type="string" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -140,7 +142,7 @@ const EditProductForm = ({ product }: EditProductFormProps) => {
         <ImageForm
           imageUrl={imgUrl}
           updateImage={uploadNewImg}
-          description={product.description}
+          description={product ? product.description : ''}
         />
 
         <Button type="submit" className="w-full text-lg">
@@ -158,4 +160,4 @@ const EditProductForm = ({ product }: EditProductFormProps) => {
   );
 }
 
-export default EditProductForm;
+export default ProductForm;

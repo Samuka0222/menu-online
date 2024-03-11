@@ -33,6 +33,7 @@ import { Button } from '@/app/_components/ui/button';
 import { ArrowDown, ArrowUp, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 import { Input } from '@/app/_components/ui/input';
+import Link from 'next/link';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -94,7 +95,7 @@ export function DataTable<TData, TValue>({
   return (
     <>
       <div className='w-full flex justify-center items-center gap-2 mt-2'>
-      <Input
+        <Input
           value={globalFilter ?? ''}
           onChange={event => setGlobalFilter(String(event.target.value))}
           className="max-w-sm p-2 font-lg shadow border border-block "
@@ -106,6 +107,11 @@ export function DataTable<TData, TValue>({
           onChange={(event) => table.getColumn('category')?.setFilterValue(event.target.value)}
           className="max-w-sm"
         /> */}
+        <Button variant='outline' asChild>
+          <Link href='products/add-product'>
+            Novo Produto
+          </Link>
+        </Button>
         <DropdownMenu onOpenChange={() => setDropdownOpen(!dropdownOpen)}>
           <DropdownMenuTrigger asChild>
             <Button variant="outline">
