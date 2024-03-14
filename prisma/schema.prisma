@@ -20,6 +20,17 @@ model User {
   accounts      Account[]
   sessions      Session[]
   orders        Order[]
+  admin         Admin?
+}
+
+model Admin {
+  id                String  @id @default(cuid())
+  restaurantName    String
+  restaurantContact String
+  restaurantImgUrl  String
+  deliveryValue     Decimal
+  user              User    @relation(fields: [userId], references: [id])
+  userId            String  @unique
 }
 
 model Product {
